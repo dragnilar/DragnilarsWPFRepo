@@ -267,6 +267,9 @@
   <ItemGroup>
     <None Include="Resources\JoinyJoinsDatabaseFill.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_Database_Administrator_96px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17279.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets" Condition="Exists('..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17279.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

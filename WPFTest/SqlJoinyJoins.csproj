@@ -36,9 +36,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Images.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Mvvm.v18.1" />
     <Reference Include="DevExpress.Xpf.Controls.v18.1" />
     <Reference Include="DevExpress.Xpf.Core.v18.1" />
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2016BlackSE.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SqlServer.AzureStorageEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17279.0\lib\net40\Microsoft.SqlServer.AzureStorageEnum.dll</HintPath>
     </Reference>
@@ -159,6 +164,21 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CrossJoinView.xaml.cs">
+      <DependentUpon>CrossJoinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FullInnerJoinView.xaml.cs">
+      <DependentUpon>FullInnerJoinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FullOuterJoinView.xaml.cs">
+      <DependentUpon>FullOuterJoinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeftJoinView.xaml.cs">
+      <DependentUpon>LeftJoinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RightJoinView.xaml.cs">
+      <DependentUpon>RightJoinView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +200,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CrossJoinView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FullInnerJoinView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FullOuterJoinView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LeftJoinView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RightJoinView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

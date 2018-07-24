@@ -8,6 +8,7 @@
                  xmlns:dxwuin="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/navigation"
                  xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
                  xmlns:local="clr-namespace:WPFTest"
+                 xmlns:views="clr-namespace:WPFTest.Views"
                  mc:Ignorable="d"
                  Title="MainWindow">
     <dxwui:HamburgerMenu OpenPaneWidth="200"
@@ -20,23 +21,22 @@
                 </dxmvvm:Interaction.Behaviors>
             </dxwui:NavigationFrame>
         </dxwui:HamburgerMenu.Content>
-        <dxwui:HamburgerMenuNavigationButton Glyph="Icons/Home.png" Content="Home" NavigationTargetType="{x:Type local:Home}"/>
+        <dxwui:HamburgerMenuNavigationButton Glyph="{dx:DXImageOffice2013 Image=Home_16x16.png}" Content="Home" NavigationTargetType="{x:Type local:Home}"/>
         <dxwui:HamburgerMenuItemSeparator/>
-        <dxwui:HamburgerSubMenu Content="Menu" Glyph="Icons/Menu.png">
+        <dxwui:HamburgerSubMenu Content="Joins Menu" Glyph="{dx:DXImageOffice2013 Image=ListBullets_16x16.png}">
             <dxwui:HamburgerSubMenu.Items>
-                <dxwui:HamburgerSubMenuNavigationButton Content="MenuSubItem 1" PreviewContent="PreviewItem 1" ShowInPreview="True" SelectOnClick="False" RightContent="RC"/>
-                <dxwui:HamburgerSubMenuNavigationButton Content="MenuSubItem 2" PreviewContent="PreviewItem 2" ShowInPreview="True" SelectOnClick="False"/>
-                <dxwui:HamburgerSubMenuNavigationButton Content="MenuSubItem 3"/>
-                <dxwui:HamburgerSubMenuNavigationButton Content="MenuSubItem 4" ShowPreviewMark="True"/>
+                <dxwui:HamburgerSubMenuNavigationButton Content="Full Inner Join" PreviewContent="Full Inner Join" ShowInPreview="True" SelectOnClick="False"
+                                                        NavigationTargetType="{x:Type views:FullInnerJoinView}"/>
+                <dxwui:HamburgerSubMenuNavigationButton Content="Full Outer Join" PreviewContent="Full Outer Join 2" ShowInPreview="True" SelectOnClick="False"
+                                                        NavigationTargetType="{x:Type views:FullOuterJoinView}"/>
+                <dxwui:HamburgerSubMenuNavigationButton Content="Left Join" PreviewContent="Left Join" ShowInPreview="True"
+                                                        NavigationTargetType="{x:Type views:LeftJoinView}"/>
+                <dxwui:HamburgerSubMenuNavigationButton Content="Right Join" PreviewContent="Right Join"  ShowInPreview="True"
+                                                        NavigationTargetType="{x:Type views:RightJoinView}"/>
+                <dxwui:HamburgerSubMenuNavigationButton Content="Cross Join" PreviewContent="Cross Join" ShowInPreview="True"
+                                                        NavigationTargetType="{x:Type views:CrossJoinView}"/>
             </dxwui:HamburgerSubMenu.Items>
         </dxwui:HamburgerSubMenu>
-        <dxwui:HamburgerMenuHyperlinkButton NavigateUri="https://www.devexpress.com/" Content="More information..." Placement="Bottom"/>
-        <dxwui:HamburgerMenuNavigationButton NavigationTargetType="{x:Type local:About}" Content="About" Placement="Bottom" Glyph="Icons/About.png"/>
-        <dxwui:HamburgerMenu.BottomBarItems>
-            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type local:Settings}" Glyph="Icons/Settings.png" Placement="Right"/>
-            <dxwui:HamburgerMenuBottomBarRadioButton GroupName="Radio" Glyph="Icons/Radio1.png"/>
-            <dxwui:HamburgerMenuBottomBarRadioButton GroupName="Radio" Glyph="Icons/Radio2.png"/>
-            <dxwui:HamburgerMenuBottomBarCheckBox Glyph="Icons/Check.png"/>
-        </dxwui:HamburgerMenu.BottomBarItems>
+        <dxwui:HamburgerMenuNavigationButton NavigationTargetType="{x:Type local:About}" Content="About" Placement="Bottom" Glyph="{dx:DXImageOffice2013 Image=Question_16x16.png}"/>
     </dxwui:HamburgerMenu>
 </dx:ThemedWindow>

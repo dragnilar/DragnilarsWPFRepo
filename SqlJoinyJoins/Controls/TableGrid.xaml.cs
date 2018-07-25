@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SqlJoinyJoins.Views
+namespace SqlJoinyJoins.Controls
 {
     /// <summary>
-    /// Interaction logic for LeftJoinView.xaml
+    /// Interaction logic for TableGrid.xaml
     /// </summary>
-    public partial class LeftJoinView : UserControl
+    public partial class TableGrid : UserControl
     {
-        public LeftJoinView()
+        public TableGrid()
         {
             InitializeComponent();
         }

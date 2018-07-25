@@ -22,7 +22,7 @@ namespace SqlJoinyJoins.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace SqlJoinyJoins.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WPFTest.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SqlJoinyJoins.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,12 +51,21 @@ namespace SqlJoinyJoins.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to - A \&quot;Full Inner Join\&quot; returns records that match in both tables. So for this example, you are seeing records that match in WeaponAttributes and Weapons.\r\n● The Squirt gun has a matching ID with attribute name cheap, but its weapon type is null and the attribute weapon type are null\r\n● The Wooden Mallet has a matching ID with the attribute name offensive, but its weapon type is null and the attribute weapon type are null\r\n● The Stringy Spatula has no match on WeaponId in the two tables, so you don\&apos;t [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string FullInnerJoinExplanation {
+            get {
+                return ResourceManager.GetString("FullInnerJoinExplanation", resourceCulture);
             }
         }
         
@@ -80,7 +89,7 @@ namespace SqlJoinyJoins.Properties {
         ///insert into Weapons values(&apos;Air Gun&apos;, &apos;Gun&apos;)
         ///insert into Weapons values(&apos;Plastic  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string JoinyJoinsDatabaseFill {
+        public static string JoinyJoinsDatabaseFill {
             get {
                 return ResourceManager.GetString("JoinyJoinsDatabaseFill", resourceCulture);
             }

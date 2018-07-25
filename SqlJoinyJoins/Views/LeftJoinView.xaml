@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="SqlJoinyJoins.Views.LeftJoinView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SqlJoinyJoins.Views"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120*"></RowDefinition>
+                <RowDefinition Height="150*"></RowDefinition>
+                <RowDefinition Height="225*"></RowDefinition>
+                <RowDefinition Height="277*"></RowDefinition>
+                <RowDefinition Height="27*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="78*"></ColumnDefinition>
+                <ColumnDefinition Width="648*"></ColumnDefinition>
+                <ColumnDefinition Width="73*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Name="GridTables" Grid.Row="2" Grid.Column="1">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="5"></RowDefinition>
+                </Grid.RowDefinitions>
+                <dxg:GridControl Grid.Row="1"  Grid.Column="0" Name="GridControlTableOne" ItemsSource="{Binding TableOneSource}" AutoGenerateColumns="AddNew"
+                              SelectionMode="Cell" Margin="0,0,0,0" >
+                    <dxg:GridControl.View>
+                        <dxg:TableView ShowGroupPanel="False"/>
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+                <dxg:GridControl Grid.Row="1"  Grid.Column="2" Name="GridControlTableTwo" ItemsSource="{Binding TableTwoSource}" AutoGenerateColumns="AddNew"
+                              SelectionMode="Cell" Margin="0,0,0,0" >
+                    <dxg:GridControl.View>
+                        <dxg:TableView ShowGroupPanel="False"/>
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+            </Grid>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Left Join" FontSize="50"></TextBlock>
+            <Separator Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="1" VerticalAlignment="Bottom" Height="2" Margin="0,0,0,0"></Separator>
+            <dxe:TextEdit Grid.Row="1" Grid.Column="1" Text="{Binding Explanation, Mode=OneWay}" VerticalScrollBarVisibility="Auto"
+                      IsReadOnly="True" Margin="0,10,0,0" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+            <dxg:GridControl  Grid.Row="3" Grid.Column="1" Name="GridControlJoin" ItemsSource="{Binding GridSource}" AutoGenerateColumns="AddNew"
+                          SelectionMode="Cell" Margin="0,10,0,0" >
+            </dxg:GridControl>
+        </Grid>
+
+    </Grid>
+</UserControl>

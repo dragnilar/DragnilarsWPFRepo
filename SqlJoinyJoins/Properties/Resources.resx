@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FullInnerJoinExplanation" xml:space="preserve">
+    <value>- A \"Full Inner Join\" returns records that match in both tables. So for this example, you are seeing records that match in WeaponAttributes and Weapons.\r\n● The Squirt gun has a matching ID with attribute name cheap, but its weapon type is null and the attribute weapon type are null\r\n● The Wooden Mallet has a matching ID with the attribute name offensive, but its weapon type is null and the attribute weapon type are null\r\n● The Stringy Spatula has no match on WeaponId in the two tables, so you don\'t get anything for it.\r\n\r\nQuery Used:\r\n\r\nselect AttributeWeaponType, AttributeName, WeaponName, WeaponType\r\nFrom WeaponAttributes\r\n\t Join Weapons \r\n\ton WeaponAttributes.WeaponId = Weapons.WeaponId\r\nOrder By AttributeWeaponType   \r\n\r\nNotes: In Microsoft SQL Server, a \"Full Inner Join\" is used when you just use \"Join\". So you actually do not need to type of \"Full Inner\"</value>
+    <comment>Explanation of full inner join</comment>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="JoinyJoinsDatabaseFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JoinyJoinsDatabaseFill.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>

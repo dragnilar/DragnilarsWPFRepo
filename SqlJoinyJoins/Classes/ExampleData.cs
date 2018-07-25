@@ -11,6 +11,8 @@ namespace SqlJoinyJoins.Classes
     {
         public string Explanation { get; set; }
 
+        public string QueryUsed { get; set; }
+
         public DataView GridSource { get; set; }
 
         public DataView TableOneSource { get; set; }

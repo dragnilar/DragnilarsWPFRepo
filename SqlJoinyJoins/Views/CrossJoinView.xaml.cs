@@ -31,10 +31,11 @@ namespace SqlJoinyJoins.Views
 
         private void SetUpControls()
         {
-            ViewData.Explanation = "Test\n Test\n Test\n";
+            ViewData.Explanation = Properties.Resources.CrossJoinExplanation;
             ViewData.GridSource = GetDataSourceData();
             ViewData.TableOneSource = GetTableOneSource();
             ViewData.TableTwoSource = GetTableTwoSource();
+            ViewData.QueryUsed = Properties.Resources.CrossJoinQuery;
             DataContext = ViewData;
         }
 

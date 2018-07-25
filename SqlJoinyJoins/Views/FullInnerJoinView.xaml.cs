@@ -37,6 +37,7 @@ namespace SqlJoinyJoins.Views
             ViewData.GridSource = GetDataSourceData();
             ViewData.TableOneSource = GetTableOneSource();
             ViewData.TableTwoSource = GetTableTwoSource();
+            ViewData.QueryUsed = Properties.Resources.FullInnerJoinQuery;
             DataContext = ViewData;
         }
 

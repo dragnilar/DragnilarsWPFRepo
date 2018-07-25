@@ -32,10 +32,11 @@ namespace SqlJoinyJoins.Views
 
         private void SetUpControls()
         {
-            ViewData.Explanation = "Test\n Test\n Test\n";
+            ViewData.Explanation = Properties.Resources.RightJoinExplanation;
             ViewData.GridSource = GetDataSourceData();
             ViewData.TableOneSource = GetTableOneSource();
             ViewData.TableTwoSource = GetTableTwoSource();
+            ViewData.QueryUsed = Properties.Resources.RightJoinQuery;
             DataContext = ViewData;
         }
 

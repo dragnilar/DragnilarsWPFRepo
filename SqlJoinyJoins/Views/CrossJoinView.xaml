@@ -12,15 +12,15 @@
         <Grid Name="MainGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="120*"></RowDefinition>
+                <RowDefinition Height="200*"></RowDefinition>
                 <RowDefinition Height="150*"></RowDefinition>
-                <RowDefinition Height="225*"></RowDefinition>
                 <RowDefinition Height="277*"></RowDefinition>
                 <RowDefinition Height="27*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="78*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
                 <ColumnDefinition Width="648*"></ColumnDefinition>
-                <ColumnDefinition Width="73*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Name="GridTables" Grid.Row="2" Grid.Column="1">
                 <Grid.ColumnDefinitions >
@@ -48,8 +48,18 @@
             </Grid>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Cross Join" FontSize="50"></TextBlock>
             <Separator Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="1" VerticalAlignment="Bottom" Height="2" Margin="0,0,0,0"></Separator>
-            <dxe:TextEdit Grid.Row="1" Grid.Column="1" Text="{Binding Explanation, Mode=OneWay}" VerticalScrollBarVisibility="Auto"
-                      IsReadOnly="True" Margin="0,10,0,0" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+            <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" Name="GridTextEdits">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Explanation" VerticalAlignment="Top" Margin="10,0,0,0"></Label>
+                <dxe:TextEdit Grid.Column="0" Text="{Binding Explanation, Mode=OneWay}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                              IsReadOnly="True" Margin="10,25,10,10" HorizontalAlignment="Stretch"/>
+                <Label Grid.Column="1" Content="Query Used" VerticalAlignment="Top" Margin="10,0,0,0"></Label>
+                <dxe:TextEdit Grid.Column="1" Text="{Binding QueryUsed, Mode=OneWay}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                              IsReadOnly="True" Margin="10,25,10,10" HorizontalAlignment="Stretch"/>
+            </Grid>
             <dxg:GridControl  Grid.Row="3" Grid.Column="1" Name="GridControlJoin" ItemsSource="{Binding GridSource}" AutoGenerateColumns="AddNew"
                           SelectionMode="Cell" Margin="0,10,0,0" >
             </dxg:GridControl>

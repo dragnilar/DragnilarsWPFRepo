@@ -117,12 +117,93 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CrossJoinExplanation" xml:space="preserve">
+    <value>- A Cross Join returns the rows in table A multiplied by the number of rows in table B. In other words, it shows all possible combinations. 
+The end result is also called a "Cartesian Product".  This type of join will take a VERY long time to complete on big tables.
+
+Note: IF you use a Where clause in a Cross Join, the Cross Join instead behaves exactly like a regular "Full Inner" Join!</value>
+    <comment>Explanation of Cross Join</comment>
+  </data>
+  <data name="CrossJoinQuery" xml:space="preserve">
+    <value>select AttributeWeaponType, AttributeName, WeaponName, WeaponType
+From WeaponAttributes
+	CROSS Join Weapons
+Order By AttributeWeaponType</value>
+    <comment>Query Used for cross join</comment>
+  </data>
   <data name="FullInnerJoinExplanation" xml:space="preserve">
-    <value>- A \"Full Inner Join\" returns records that match in both tables. So for this example, you are seeing records that match in WeaponAttributes and Weapons.\r\n● The Squirt gun has a matching ID with attribute name cheap, but its weapon type is null and the attribute weapon type are null\r\n● The Wooden Mallet has a matching ID with the attribute name offensive, but its weapon type is null and the attribute weapon type are null\r\n● The Stringy Spatula has no match on WeaponId in the two tables, so you don\'t get anything for it.\r\n\r\nQuery Used:\r\n\r\nselect AttributeWeaponType, AttributeName, WeaponName, WeaponType\r\nFrom WeaponAttributes\r\n\t Join Weapons \r\n\ton WeaponAttributes.WeaponId = Weapons.WeaponId\r\nOrder By AttributeWeaponType   \r\n\r\nNotes: In Microsoft SQL Server, a \"Full Inner Join\" is used when you just use \"Join\". So you actually do not need to type of \"Full Inner\"</value>
+    <value>- A "Full Inner Join" returns records that match in both tables. So for this example, you are seeing records that match in WeaponAttributes and Weapons.
+● The Squirt gun has a matching ID with attribute name cheap, but its weapon type is null and the attribute weapon type are null
+● The Wooden Mallet has a matching ID with the attribute name offensive, but its weapon type is null and the attribute weapon type are null
+● The Stringy Spatula has no match on WeaponId in the two tables, so you don't get anything for it.
+
+Notes: In Microsoft SQL Server, a "Full Inner Join" is used when you just use "Join". So you actually do not need to type of "Full Inner"</value>
     <comment>Explanation of full inner join</comment>
+  </data>
+  <data name="FullInnerJoinQuery" xml:space="preserve">
+    <value>select AttributeWeaponType, AttributeName, WeaponName, WeaponType
+From WeaponAttributes
+	 Join Weapons 
+	on WeaponAttributes.WeaponId = Weapons.WeaponId
+Order By AttributeWeaponType</value>
+    <comment>Query used for full inner join</comment>
+  </data>
+  <data name="FullOuterJoinExplanation" xml:space="preserve">
+    <value>- A "Full Outer Join" returns records in both tatbles that match on both sides where available. However, if there is no match then anything missing is null!
+Thus a Full Outer Join can return more rows than a regular Inner Join.
+
+● The spatula has no matching weapon attribute or name due to a lack of common ID, so you get two nulls in the left table.
+● The squirt gun and mallet have no matching attribute weapon type or weapon type, so you get nulls on left and right since the two columns are null.
+● The kitchen utensil/annoying attribute weapon types and names do not match any weapon Id's so you get nulls for the right table.
+● Note that since there are no matches for KitchenUtensil/Annoying and StringySpatula/KitchenUtensil, you get 2 results for those two.
+
+Note: In Microsoft SQL Server, the "Outer" part is optional. 
+
+So you only need to type in "Full Join" in order to get a join where it returns rows with no matches on each side.</value>
+    <comment>Explanation of Full Outer Join</comment>
+  </data>
+  <data name="FullOuterJoinQuery" xml:space="preserve">
+    <value>select AttributeWeaponType, AttributeName, WeaponName, WeaponType
+From WeaponAttributes
+	Full Join Weapons 
+	on WeaponAttributes.WeaponId = Weapons.WeaponId
+Order By AttributeWeaponType</value>
+    <comment>Query used for full outer join</comment>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="JoinyJoinsDatabaseFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JoinyJoinsDatabaseFill.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="LeftJoinExplanation" xml:space="preserve">
+    <value>- A Left Join returns all records from table A. If there are any matches in table B, they display. Otherwise you will get nulls.
+
+● The null attribute weapon type with attribute name cheap has a matching weapon named squirt gun. The weapon type is null.
+● The same is the case with offensive / wooden mallet.
+● Annoying Kitchen utensil has no matches in the right table based off of weapon Id.</value>
+    <comment>Explanation of Left Join</comment>
+  </data>
+  <data name="LeftJoinQuery" xml:space="preserve">
+    <value>select AttributeWeaponType, AttributeName, WeaponName, WeaponType
+From WeaponAttributes
+	Left Join Weapons
+	on WeaponAttributes.WeaponId = Weapons.WeaponId
+Order By AttributeWeaponType</value>
+    <comment>Query used for left join</comment>
+  </data>
+  <data name="RightJoinExplanation" xml:space="preserve">
+    <value>- A Right Join returns all records from table B. If there are any matches in table A, they display. Otherwise you will get nulls.
+
+● The squirt gun has a match on the left for the weapon attribute named cheap. Since there are no weapon types, they are null.
+● The same is the case for the offensive/wooden mallet.
+● Nothing in WeaponAttributes matches the Stringy Spatula, so you get nulls on the left</value>
+    <comment>Explanation of Right Join</comment>
+  </data>
+  <data name="RightJoinQuery" xml:space="preserve">
+    <value>select AttributeWeaponType, AttributeName, WeaponName, WeaponType
+From WeaponAttributes
+	Right Join Weapons
+	on WeaponAttributes.WeaponId = Weapons.WeaponId
+Order By AttributeWeaponType</value>
+    <comment>Query used for right join</comment>
   </data>
 </root>

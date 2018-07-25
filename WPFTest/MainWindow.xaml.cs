@@ -1,6 +1,7 @@
-﻿using DevExpress.Xpf.Core;
+﻿using System.Windows;
+using DevExpress.Xpf.Core;
 
-namespace WPFTest
+namespace SqlJoinyJoins
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -10,6 +11,12 @@ namespace WPFTest
         public MainWindow()
         {
             InitializeComponent();
+            this.Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            DXSplashScreen.Close();
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WPFTest.Properties
+namespace SqlJoinyJoins.Properties
 {
 
 

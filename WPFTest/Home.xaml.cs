@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace WPFTest
+namespace SqlJoinyJoins
 {
     /// <summary>
     /// Interaction logic for MainPage.xaml

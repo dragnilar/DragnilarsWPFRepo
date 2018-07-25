@@ -6,79 +6,97 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Management.Smo;
 
-namespace WPFTest.Classes
+namespace SqlJoinyJoins.Classes
 {
     public class DatabaseBuilder
     {
 
-        public string DatabaseName = "SQLJoinyJoinsDb";
+        private string DatabaseName = "SQLJoinyJoinsDb";
 
         public void CreateAndPopulateTestDatabase()
         {
             try
             {
-                var server = GetLocalDBServer();
-                DropTestDatabaseIfItExists(server);
-
-                var db = GetTestDatabase(server);
-                db.Create();
-
-                server = null;
-
-                server = GetLocalDBServer();
-
-
-                server.ConnectionContext.ExecuteNonQuery(GetDatabaseFillSqlScript());
+                DropTestDatabaseIfItExists();
+                CreateTestDatabase();
+                FillTestDatabase();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
         }
-
-        public void DropTestDatabaseIfItExists(Server server = null)
+        private void CreateTestDatabase()
         {
-            if (server == null)
-            {
-                server = GetLocalDBServer();
-            }
+            var server = GetLocalDBServer();
+            var db = GetTestDatabase(server);
+            db.Create();
+        }
 
+        private void FillTestDatabase()
+        {
+            var server = GetLocalDBServerWithDatabase();
+            server.ConnectionContext.ExecuteNonQuery(GetDatabaseFillSqlScript());
+        }
 
-            if (server.Databases.Contains(DatabaseName))
+        private void DropTestDatabaseIfItExists()
+        {
+
+            if (DoesDatabaseExist())
             {
+                var server = GetLocalDBServer();
                 server.KillDatabase(DatabaseName);
             }
 
         }
 
-        public Server GetLocalDBServer()
+        public bool DoesDatabaseExist()
+        {
+            var server = GetLocalDBServer();
+
+            return server.Databases.Contains(DatabaseName);
+        }
+
+        private Server GetLocalDBServer()
         {
             var server = new Server();
+            var sqlConnectionStringBuilder = GetConnectionStringBuilderForServer();
+            server.ConnectionContext.ConnectionString = sqlConnectionStringBuilder.ConnectionString;
+            return server;
+        }
 
+        private Server GetLocalDBServerWithDatabase()
+        {
+            var server = new Server();
+            var sqlConnectionStringBuilder = GetConnectionStringBuilderForServer();
+            sqlConnectionStringBuilder.InitialCatalog = DatabaseName;
+            server.ConnectionContext.ConnectionString = sqlConnectionStringBuilder.ConnectionString;
+            return server;
+        }
+
+        private SqlConnectionStringBuilder GetConnectionStringBuilderForServer()
+        {
             var sqlConnectionStringBuilder = new SqlConnectionStringBuilder
             {
                 DataSource = @"(LocalDB)\MSSQLLocalDB",
                 IntegratedSecurity = true,
                 ConnectTimeout = 30
             };
-
-
-            server.ConnectionContext.ConnectionString = sqlConnectionStringBuilder.ConnectionString;
-
-            return server;
+            return sqlConnectionStringBuilder;
         }
 
-        public Database GetTestDatabase(Server server)
+
+
+        private Database GetTestDatabase(Server server)
         {
             var testDb = new Database(server, DatabaseName);
             return testDb;
         }
 
 
-        public string GetDatabaseFillSqlScript()
+        private string GetDatabaseFillSqlScript()
         {
             return Properties.Resources.JoinyJoinsDatabaseFill;
-            ;
         }
     }
 }

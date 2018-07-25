@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,17 +9,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DevExpress.Xpf.Core;
 
-namespace SqlJoinyJoins.Views
+namespace SqlJoinyJoins
 {
     /// <summary>
-    /// Interaction logic for LeftJoinView.xaml
+    /// Interaction logic for Splashy.xaml
     /// </summary>
-    public partial class LeftJoinView : UserControl
+    public partial class Splashy : UserControl
     {
-        public LeftJoinView()
+        public Splashy()
         {
             InitializeComponent();
         }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFTest.Views
+namespace SqlJoinyJoins.Views
 {
     /// <summary>
     /// Interaction logic for RightJoinView.xaml

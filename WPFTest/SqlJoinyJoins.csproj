@@ -36,10 +36,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Images.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Mvvm.v18.1" />
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Controls.v18.1" />
     <Reference Include="DevExpress.Xpf.Core.v18.1" />
     <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -155,6 +157,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\DatabaseBuilder.cs" />
+    <Compile Include="DXSplashScreen\Splashy.xaml.cs">
+      <DependentUpon>Splashy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -179,6 +184,10 @@
     <Compile Include="Views\RightJoinView.xaml.cs">
       <DependentUpon>RightJoinView.xaml</DependentUpon>
     </Compile>
+    <Page Include="DXSplashScreen\Splashy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -269,6 +278,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons8_Database_Administrator_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ThemeSelector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DXSplashScreen\Image.png" />
+    <Resource Include="DXSplashScreen\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17279.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets" Condition="Exists('..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17279.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets')" />

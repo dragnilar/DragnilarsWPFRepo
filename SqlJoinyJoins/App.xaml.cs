@@ -23,7 +23,7 @@ namespace SqlJoinyJoins
 
         private void CreateDatabaseIfItExists()
         {
-            var dbBuilder = new DatabaseBuilder();
+            var dbBuilder = new MsSqlServerDatabaseBuilder();
             if (!dbBuilder.DoesDatabaseExist())
             {
                 DXSplashScreen.SetState("Creating Database, Please Wait...");

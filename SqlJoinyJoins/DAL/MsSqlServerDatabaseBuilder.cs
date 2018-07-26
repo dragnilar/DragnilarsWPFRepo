@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Management.Smo;
 using SqlJoinyJoins.Classes;
+using SqlJoinyJoins.Globals;
 
 namespace SqlJoinyJoins.Classes
 {
-    public class DatabaseBuilder
+    public class MsSqlServerDatabaseBuilder
     {
 
 
@@ -29,14 +30,14 @@ namespace SqlJoinyJoins.Classes
         }
         private void CreateTestDatabase()
         {
-            var server = DataAccessLayer.GetLocalDbServer();
+            var server = DataAccess.GetLocalMsSqlServer();
             var db = GetTestDatabase(server);
             db.Create();
         }
 
         private void FillTestDatabase()
         {
-            var server = DataAccessLayer.GetLocalDbServer(GlobalStrings.DatabaseName);
+            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
             server.ConnectionContext.ExecuteNonQuery(GetDatabaseFillSqlScript());
         }
 
@@ -45,7 +46,7 @@ namespace SqlJoinyJoins.Classes
 
             if (DoesDatabaseExist())
             {
-                var server = DataAccessLayer.GetLocalDbServer();
+                var server = DataAccess.GetLocalMsSqlServer();
                 server.KillDatabase(GlobalStrings.DatabaseName);
             }
 
@@ -53,7 +54,7 @@ namespace SqlJoinyJoins.Classes
 
         public bool DoesDatabaseExist()
         {
-            var server = DataAccessLayer.GetLocalDbServer();
+            var server = DataAccess.GetLocalMsSqlServer();
 
             return server.Databases.Contains(GlobalStrings.DatabaseName);
         }

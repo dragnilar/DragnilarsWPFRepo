@@ -8,11 +8,11 @@ using Microsoft.SqlServer.Management.Smo;
 
 namespace SqlJoinyJoins.Classes
 {
-    public static class DataAccessLayer
+    public static class DataAccess
     {
 
 
-        public static Server GetLocalDbServer(string databaseName = null)
+        public static Server GetLocalMsSqlServer(string databaseName = null)
         {
             var server = new Server();
             var sqlConnectionStringBuilder = GetConnectionStringBuilderForServer();

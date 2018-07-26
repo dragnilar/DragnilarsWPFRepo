@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SqlJoinyJoins.Classes;
+using SqlJoinyJoins.Globals;
+using SqlJoinyJoins.Models;
 
 namespace SqlJoinyJoins.Views
 {
@@ -47,7 +49,7 @@ namespace SqlJoinyJoins.Views
         {
             var selectStatement = "select AttributeWeaponType, AttributeName, WeaponName, WeaponType\r\nFrom WeaponAttributes\r\n\tRight Join Weapons\r\n\ton WeaponAttributes.WeaponId = Weapons.WeaponId\r\nOrder By AttributeWeaponType";
 
-            var server = DataAccessLayer.GetLocalDbServer(GlobalStrings.DatabaseName);
+            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
 
             var set = server.ConnectionContext.ExecuteWithResults(selectStatement);
 
@@ -57,7 +59,7 @@ namespace SqlJoinyJoins.Views
         private DataView GetTableOneSource()
         {
             var selectStatement = "select * from WeaponAttributes";
-            var server = DataAccessLayer.GetLocalDbServer(GlobalStrings.DatabaseName);
+            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
 
             var set = server.ConnectionContext.ExecuteWithResults(selectStatement);
 
@@ -68,7 +70,7 @@ namespace SqlJoinyJoins.Views
         {
             var selectStatement = "select * from Weapons";
 
-            var server = DataAccessLayer.GetLocalDbServer(GlobalStrings.DatabaseName);
+            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
 
             var set = server.ConnectionContext.ExecuteWithResults(selectStatement);
 

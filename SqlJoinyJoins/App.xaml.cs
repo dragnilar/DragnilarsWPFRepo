@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using DevExpress.Xpf.Core;
 using SqlJoinyJoins.Classes;
@@ -22,6 +23,7 @@ namespace SqlJoinyJoins
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            SetupExceptionHandling();
             CheckSettings();
             DXSplashScreen.Show<Splashy>();
 
@@ -29,6 +31,31 @@ namespace SqlJoinyJoins
             CreateDatabaseIfItExists();
 
             
+        }
+
+        private void SetupExceptionHandling()
+        {
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+                LogUnhandledException((Exception)e.ExceptionObject, "AppDomain.CurrentDomain.UnhandledException");
+
+            DispatcherUnhandledException += (s, e) =>
+                LogUnhandledException(e.Exception, "Application.Current.DispatcherUnhandledException");
+
+            TaskScheduler.UnobservedTaskException += (s, e) =>
+                LogUnhandledException(e.Exception, "TaskScheduler.UnobservedTaskException");
+        }
+
+        private void LogUnhandledException(Exception eExceptionObject, string source)
+        {
+            //TODO CHANGE ME
+            if (DXSplashScreen.IsActive)
+            {
+                DXSplashScreen.Close();
+            }
+
+            MessageBox.Show(eExceptionObject.ToString(), "Unhandled Exception", MessageBoxButton.OK,
+                MessageBoxImage.Error);
+            Current.Shutdown();
         }
 
         private void CheckSettings()

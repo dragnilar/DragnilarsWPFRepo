@@ -16,8 +16,7 @@
             <Separator BorderThickness="1"></Separator>
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
-            <TextBlock Text="     • This is a silly tutorial / example fest of SQL Joins" FontSize="20"></TextBlock>
-            <TextBlock></TextBlock>
+            <TextBlock Text="     • This is a silly tutorial / example list of SQL Joins" FontSize="20"></TextBlock>
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>

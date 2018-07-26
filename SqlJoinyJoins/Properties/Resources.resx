@@ -159,7 +159,14 @@ Thus a Full Outer Join can return more rows than a regular Inner Join.
 
 Note: In Microsoft SQL Server, the "Outer" part is optional. 
 
-So you only need to type in "Full Join" in order to get a join where it returns rows with no matches on each side.</value>
+So you only need to type in "Full Join" in order to get a join where it returns rows with no matches on each side.
+
+Note : Some databases do not support Right Join.
+
+For example,
+Sqlite does not support it. So you may notice the query being used on the right is completely different if you are using this application with a Sqlite databases.
+ 
+</value>
     <comment>Explanation of Full Outer Join</comment>
   </data>
   <data name="FullOuterJoinQuery" xml:space="preserve">
@@ -169,6 +176,20 @@ From WeaponAttributes
 	on WeaponAttributes.WeaponId = Weapons.WeaponId
 Order By AttributeWeaponType</value>
     <comment>Query used for full outer join</comment>
+  </data>
+  <data name="FullOuterJoinQuerySqlite" xml:space="preserve">
+    <value>SELECT AttributeWeaponType, AttributeName, WeaponName, WeaponType
+FROM   WeaponAttributes 
+       LEFT JOIN Weapons 
+          ON WeaponAttributes.WeaponId = Weapons.WeaponId
+UNION ALL
+SELECT WeaponAttributes.AttributeWeaponType, WeaponAttributes.AttributeName, WeaponName, WeaponType
+FROM  Weapons
+       LEFT JOIN WeaponAttributes
+          ON WeaponAttributes.WeaponId = Weapons.WeaponId
+WHERE  WeaponAttributes.WeaponId IS NULL
+order by AttributeWeaponType</value>
+    <comment>Full Outer Join Work Around Query For Sqllite</comment>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="JoinyJoinsDatabaseFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -195,7 +216,14 @@ Order By AttributeWeaponType</value>
 
 ● The squirt gun has a match on the left for the weapon attribute named cheap. Since there are no weapon types, they are null.
 ● The same is the case for the offensive/wooden mallet.
-● Nothing in WeaponAttributes matches the Stringy Spatula, so you get nulls on the left</value>
+● Nothing in WeaponAttributes matches the Stringy Spatula, so you get nulls on the left
+
+Note: Some databases do not support Full Outer Join. 
+
+For example,
+Sqlite does not support it. So you may notice the query being used on the right is completely different if you are using this application with a Sqlite databases.
+
+Note 2: A right join is functionally the same as a left join, the only key difference is that the table order is reversed. So you can still do a right join using left join... just flip the tables!</value>
     <comment>Explanation of Right Join</comment>
   </data>
   <data name="RightJoinQuery" xml:space="preserve">
@@ -205,5 +233,13 @@ From WeaponAttributes
 	on WeaponAttributes.WeaponId = Weapons.WeaponId
 Order By AttributeWeaponType</value>
     <comment>Query used for right join</comment>
+  </data>
+  <data name="RightJoinQuerySqlite" xml:space="preserve">
+    <value>select AttributeWeaponType, AttributeName, WeaponName, WeaponType
+From Weapons
+	Left Join WeaponAttributes
+	on Weapons.WeaponId = WeaponAttributes.WeaponId
+Order By AttributeWeaponType</value>
+    <comment>Right Join Work Around Query For SqlLite</comment>
   </data>
 </root>

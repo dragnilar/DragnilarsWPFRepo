@@ -1,11 +1,39 @@
-﻿<UserControl x:Class="SqlJoinyJoins.Settings"
+﻿<UserControl xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  x:Class="SqlJoinyJoins.Settings"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <TextBlock Text="Settings View" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <Grid Name="GridMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label FontSize="25" Grid.Row="0">Settings Menu</Label>
+        <Separator Grid.Row="0" VerticalAlignment="Bottom"></Separator>
+        <Grid Grid.Row="1" Name="GridBody">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Database Type" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom"></Label>
+            <dxe:ListBoxEdit Grid.Row="1" Grid.Column="1" Name="ListBoxEditServerType" StyleSettings="{dxe:RadioListBoxEditStyleSettings}">
+                <dxe:ListBoxEditItem Name="ListBoxEditItemSqlite">Sqlite (Default)</dxe:ListBoxEditItem>
+                <dxe:ListBoxEditItem Name="ListBoxEditItemMsSql">Microsoft Sql Server</dxe:ListBoxEditItem>
+                <dxe:ListBoxEditItem Name="ListBoxEditItemMsSqlLocalDb">Microsoft Sql Server (Local DB)</dxe:ListBoxEditItem>
+            </dxe:ListBoxEdit>
+            <dx:SimpleButton Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Width="100" Name="SimpleButtonSave"
+                             Click="SimpleButtonSave_OnClick">Save Settings</dx:SimpleButton>
+        </Grid>
     </Grid>
 </UserControl>

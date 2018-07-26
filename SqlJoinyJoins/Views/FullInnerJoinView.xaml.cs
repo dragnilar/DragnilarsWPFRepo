@@ -36,47 +36,11 @@ namespace SqlJoinyJoins.Views
         private void SetUpControls()
         {
             ViewData.Explanation = Properties.Resources.FullInnerJoinExplanation;
-            ViewData.GridSource = GetDataSourceData();
-            ViewData.TableOneSource = GetTableOneSource();
-            ViewData.TableTwoSource = GetTableTwoSource();
+            ViewData.GridSource = DataAccess.GetInnerJoinData();
+            ViewData.TableOneSource = DataAccess.GetTableOneSource();
+            ViewData.TableTwoSource = DataAccess.GetTableTwoSource();
             ViewData.QueryUsed = Properties.Resources.FullInnerJoinQuery;
             DataContext = ViewData;
-        }
-
-
-
-
-        private DataView GetDataSourceData()
-        {
-            var selectStatement = "select AttributeWeaponType, AttributeName, WeaponName, WeaponType\r\nFrom WeaponAttributes\r\n\t Join Weapons " +
-                                  "on WeaponAttributes.WeaponId = Weapons.WeaponId\r\nOrder By AttributeWeaponType   ";
-
-            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
-
-            var set = server.ConnectionContext.ExecuteWithResults(selectStatement);
-
-            return set.Tables.Count == 1 ? set.Tables[0].DefaultView : null;
-        }
-
-        private DataView GetTableOneSource()
-        {
-            var selectStatement = "select * from WeaponAttributes";
-            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
-
-            var set = server.ConnectionContext.ExecuteWithResults(selectStatement);
-
-            return set.Tables.Count == 1 ? set.Tables[0].DefaultView : null;
-        }
-
-        private DataView GetTableTwoSource()
-        {
-            var selectStatement = "select * from Weapons";
-
-            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
-
-            var set = server.ConnectionContext.ExecuteWithResults(selectStatement);
-
-            return set.Tables.Count == 1 ? set.Tables[0].DefaultView : null;
         }
     }
 }

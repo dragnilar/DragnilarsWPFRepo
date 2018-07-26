@@ -47,7 +47,12 @@
                 </dxwui:HamburgerSubMenuThemeSelectorBehavior>
             </dxmvvm:Interaction.Behaviors>
         </dxwui:HamburgerSubMenu>
-        <dxwui:HamburgerMenuNavigationButton NavigationTargetType="{x:Type local:About}" Content="About" Placement="Bottom" Glyph="{dx:DXImageOffice2013 Image=Question_32x32.png}"
-                                             dxb:ImageColorizer.IsEnabled="True"/>
+        <dxwui:HamburgerMenu.BottomBarItems>
+            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type local:About}" Content="About" Glyph="{dx:DXImageOffice2013 Image=Question_32x32.png}"
+                                                 dxb:ImageColorizer.IsEnabled="True"/>
+            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type local:Settings}" Content="Settings" Glyph="{dx:DXImageOffice2013 Image=IDE_32x32.png}"
+                                                 dxb:ImageColorizer.IsEnabled="True"/>
+        </dxwui:HamburgerMenu.BottomBarItems>
+
     </dxwui:HamburgerMenu>
 </dx:ThemedWindow>

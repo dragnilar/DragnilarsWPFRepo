@@ -35,46 +35,14 @@ namespace SqlJoinyJoins.Views
         private void SetUpControls()
         {
             ViewData.Explanation = Properties.Resources.RightJoinExplanation;
-            ViewData.GridSource = GetDataSourceData();
-            ViewData.TableOneSource = GetTableOneSource();
-            ViewData.TableTwoSource = GetTableTwoSource();
-            ViewData.QueryUsed = Properties.Resources.RightJoinQuery;
+            ViewData.GridSource = DataAccess.GetRightJoinData();
+            ViewData.TableOneSource = DataAccess.GetTableOneSource();
+            ViewData.TableTwoSource = DataAccess.GetTableTwoSource();
+
+            ViewData.QueryUsed = App.Config.DatabaseType == GlobalStrings.DataBaseTypes.SqlLite 
+                ? Properties.Resources.RightJoinQuerySqlite : Properties.Resources.RightJoinQuery;
+            
             DataContext = ViewData;
-        }
-
-
-
-
-        private DataView GetDataSourceData()
-        {
-            var selectStatement = "select AttributeWeaponType, AttributeName, WeaponName, WeaponType\r\nFrom WeaponAttributes\r\n\tRight Join Weapons\r\n\ton WeaponAttributes.WeaponId = Weapons.WeaponId\r\nOrder By AttributeWeaponType";
-
-            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
-
-            var set = server.ConnectionContext.ExecuteWithResults(selectStatement);
-
-            return set.Tables.Count == 1 ? set.Tables[0].DefaultView : null;
-        }
-
-        private DataView GetTableOneSource()
-        {
-            var selectStatement = "select * from WeaponAttributes";
-            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
-
-            var set = server.ConnectionContext.ExecuteWithResults(selectStatement);
-
-            return set.Tables.Count == 1 ? set.Tables[0].DefaultView : null;
-        }
-
-        private DataView GetTableTwoSource()
-        {
-            var selectStatement = "select * from Weapons";
-
-            var server = DataAccess.GetLocalMsSqlServer(GlobalStrings.DatabaseName);
-
-            var set = server.ConnectionContext.ExecuteWithResults(selectStatement);
-
-            return set.Tables.Count == 1 ? set.Tables[0].DefaultView : null;
         }
     }
 }

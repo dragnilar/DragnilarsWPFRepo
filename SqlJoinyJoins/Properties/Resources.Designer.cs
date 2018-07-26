@@ -137,6 +137,25 @@ namespace SqlJoinyJoins.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT AttributeWeaponType, AttributeName, WeaponName, WeaponType
+        ///FROM   WeaponAttributes 
+        ///       LEFT JOIN Weapons 
+        ///          ON WeaponAttributes.WeaponId = Weapons.WeaponId
+        ///UNION ALL
+        ///SELECT WeaponAttributes.AttributeWeaponType, WeaponAttributes.AttributeName, WeaponName, WeaponType
+        ///FROM  Weapons
+        ///       LEFT JOIN WeaponAttributes
+        ///          ON WeaponAttributes.WeaponId = Weapons.WeaponId
+        ///WHERE  WeaponAttributes.WeaponId IS NULL
+        ///order by AttributeWeaponType.
+        /// </summary>
+        public static string FullOuterJoinQuerySqlite {
+            get {
+                return ResourceManager.GetString("FullOuterJoinQuerySqlite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Table Weapons(
         ///WeaponId int identity not null Primary Key,
         ///WeaponName nvarchar(1000) not null,
@@ -193,7 +212,12 @@ namespace SqlJoinyJoins.Properties {
         ///
         ///● The squirt gun has a match on the left for the weapon attribute named cheap. Since there are no weapon types, they are null.
         ///● The same is the case for the offensive/wooden mallet.
-        ///● Nothing in WeaponAttributes matches the Stringy Spatula, so you get nulls on the left.
+        ///● Nothing in WeaponAttributes matches the Stringy Spatula, so you get nulls on the left
+        ///
+        ///Note: Some databases do not support Full Outer Join. 
+        ///
+        ///For example,
+        ///Sqlite does not support it. So y [rest of string was truncated]&quot;;.
         /// </summary>
         public static string RightJoinExplanation {
             get {
@@ -211,6 +235,19 @@ namespace SqlJoinyJoins.Properties {
         public static string RightJoinQuery {
             get {
                 return ResourceManager.GetString("RightJoinQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select AttributeWeaponType, AttributeName, WeaponName, WeaponType
+        ///From Weapons
+        ///	Left Join WeaponAttributes
+        ///	on Weapons.WeaponId = WeaponAttributes.WeaponId
+        ///Order By AttributeWeaponType.
+        /// </summary>
+        public static string RightJoinQuerySqlite {
+            get {
+                return ResourceManager.GetString("RightJoinQuerySqlite", resourceCulture);
             }
         }
     }

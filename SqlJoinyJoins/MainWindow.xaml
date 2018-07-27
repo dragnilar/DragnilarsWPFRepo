@@ -24,6 +24,8 @@
         </dxwui:HamburgerMenu.Content>
         <dxwui:HamburgerMenuNavigationButton Glyph="{dx:DXImageOffice2013 Image=Home_32x32.png}" Content="Home" NavigationTargetType="{x:Type local:Home}"
                                              dxb:ImageColorizer.IsEnabled="True"/>
+        <dxwui:HamburgerMenuNavigationButton NavigationTargetType="{x:Type local:SettingsPage}" Content="SettingsPage" Glyph="{dx:DXImageOffice2013 Image=IDE_32x32.png}"
+                                             dxb:ImageColorizer.IsEnabled="True"></dxwui:HamburgerMenuNavigationButton>
         <dxwui:HamburgerMenuItemSeparator/>
         <dxwui:HamburgerSubMenu Content="Joins Menu" Glyph="{dx:DXImageOffice2013 Image=Database_32x32.png}" dxb:ImageColorizer.IsEnabled="True">
             <dxwui:HamburgerSubMenu.Items>
@@ -50,7 +52,7 @@
         <dxwui:HamburgerMenu.BottomBarItems>
             <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type local:About}" Content="About" Glyph="{dx:DXImageOffice2013 Image=Question_32x32.png}"
                                                  dxb:ImageColorizer.IsEnabled="True"/>
-            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type local:Settings}" Content="Settings" Glyph="{dx:DXImageOffice2013 Image=IDE_32x32.png}"
+            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type local:SettingsPage}" Content="SettingsPage" Glyph="{dx:DXImageOffice2013 Image=IDE_32x32.png}"
                                                  dxb:ImageColorizer.IsEnabled="True"/>
         </dxwui:HamburgerMenu.BottomBarItems>
 

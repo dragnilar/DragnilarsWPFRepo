@@ -8,9 +8,9 @@ namespace SqlJoinyJoins
     /// <summary>
     /// Interaction logic for SettingsPage.xaml
     /// </summary>
-    public partial class Settings : UserControl
+    public partial class SettingsPage : UserControl
     {
-        public Settings()
+        public SettingsPage()
         {
             InitializeComponent();
             SetUpControls();
@@ -62,7 +62,7 @@ namespace SqlJoinyJoins
             }
 
             App.Config.Save();
-            DXMessageBox.Show("Settings Saved!", "Settings Saved", MessageBoxButton.OK, MessageBoxImage.Information);
+            DXMessageBox.Show("SettingsPage Saved!", "SettingsPage Saved", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

@@ -98,10 +98,29 @@ namespace SqlJoinyJoins.Classes
             return App.Config.DatabaseType == GlobalStrings.DataBaseTypes.SqlLite ? GetTableUsingEntityFramework(selectStatement) : GetTableUsingSMO(selectStatement);
         }
 
+
         public static DataView GetTableTwoSource()
         {
             const string selectStatement = "select * from Weapons";
             return App.Config.DatabaseType == GlobalStrings.DataBaseTypes.SqlLite ? GetTableUsingEntityFramework(selectStatement) : GetTableUsingSMO(selectStatement);
+        }
+
+        public static (DataView result, Exception error) GetTableForCustomQuery(string sqlStatement)
+        {
+            DataView result;
+
+            try
+            {
+                result = App.Config.DatabaseType == GlobalStrings.DataBaseTypes.SqlLite ?
+                    GetTableUsingEntityFramework(sqlStatement) : GetTableUsingSMO(sqlStatement);
+            }
+            catch (Exception e)
+            {
+                return (null, e);
+
+            }
+
+            return (result, null);
         }
 
         private static DataView GetTableUsingSMO(string sqlStatement)

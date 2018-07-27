@@ -11,24 +11,22 @@
                  xmlns:views="clr-namespace:SqlJoinyJoins.Views"
                  xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
                  mc:Ignorable="d"
-                 Title="MainWindow"
+                 Title="SQL Joiny Joins"
                  Icon="icons8_Database_Administrator_96px.png">
     <dxwui:HamburgerMenu OpenPaneWidth="200"
                          SelectedItem="{Binding HamburgerMenuSelectedItem, Mode=TwoWay}"
-                         NavigationTarget="{Binding ElementName=service}">
+                         NavigationTarget="{Binding ElementName=service}" Header="Main Menu">
         <dxwui:HamburgerMenu.Content>
-            <dxwui:NavigationFrame Source="{x:Type local:Home}">
+            <dxwui:NavigationFrame Source="{x:Type views:Home}">
                 <dxmvvm:Interaction.Behaviors>
                     <dxwuin:FrameNavigationService x:Name="service"/>
                 </dxmvvm:Interaction.Behaviors>
             </dxwui:NavigationFrame>
         </dxwui:HamburgerMenu.Content>
-        <dxwui:HamburgerMenuNavigationButton Glyph="{dx:DXImageOffice2013 Image=Home_32x32.png}" Content="Home" NavigationTargetType="{x:Type local:Home}"
+        <dxwui:HamburgerMenuNavigationButton Glyph="{dx:DXImageOffice2013 Image=Home_32x32.png}" Content="Home" NavigationTargetType="{x:Type views:Home}"
                                              dxb:ImageColorizer.IsEnabled="True"/>
-        <dxwui:HamburgerMenuNavigationButton NavigationTargetType="{x:Type local:SettingsPage}" Content="SettingsPage" Glyph="{dx:DXImageOffice2013 Image=IDE_32x32.png}"
-                                             dxb:ImageColorizer.IsEnabled="True"></dxwui:HamburgerMenuNavigationButton>
         <dxwui:HamburgerMenuItemSeparator/>
-        <dxwui:HamburgerSubMenu Content="Joins Menu" Glyph="{dx:DXImageOffice2013 Image=Database_32x32.png}" dxb:ImageColorizer.IsEnabled="True">
+        <dxwui:HamburgerSubMenu Content="Types Of Joins" Glyph="{dx:DXImageOffice2013 Image=Database_32x32.png}" dxb:ImageColorizer.IsEnabled="True">
             <dxwui:HamburgerSubMenu.Items>
                 <dxwui:HamburgerSubMenuNavigationButton Content="Inner Join" PreviewContent="Inner Join" ShowInPreview="True" SelectOnClick="False"
                                                         NavigationTargetType="{x:Type views:InnerJoinView}" ToolTip="View an example on a Inner Join"/>
@@ -51,9 +49,9 @@
             </dxmvvm:Interaction.Behaviors>
         </dxwui:HamburgerSubMenu>
         <dxwui:HamburgerMenu.BottomBarItems>
-            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type local:About}" Content="About" Glyph="{dx:DXImageOffice2013 Image=Question_32x32.png}"
+            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type views:About}" Content="About" Glyph="{dx:DXImageOffice2013 Image=Question_32x32.png}"
                                                  dxb:ImageColorizer.IsEnabled="True"/>
-            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type local:SettingsPage}" Content="SettingsPage" Glyph="{dx:DXImageOffice2013 Image=IDE_32x32.png}"
+            <dxwui:HamburgerMenuBottomBarNavigationButton NavigationTargetType="{x:Type views:SettingsPage}" Content="SettingsPage" Glyph="{dx:DXImageOffice2013 Image=IDE_32x32.png}"
                                                  dxb:ImageColorizer.IsEnabled="True"/>
         </dxwui:HamburgerMenu.BottomBarItems>
 

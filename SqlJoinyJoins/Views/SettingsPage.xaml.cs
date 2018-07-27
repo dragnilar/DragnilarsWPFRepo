@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data;
-using System.Globalization;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Input;
-using System.Windows.Markup;
-using DevExpress.Xpf.Core;
-using DevExpress.Xpf.WindowsUI;
+﻿using System.Windows.Controls;
 using SqlJoinyJoins.ViewModels;
 
-namespace SqlJoinyJoins
+namespace SqlJoinyJoins.Views
 {
     /// <summary>
     /// Interaction logic for SettingsPage.xaml

@@ -55,6 +55,7 @@ namespace SqlJoinyJoins
 
             MessageBox.Show(eExceptionObject.ToString(), "Unhandled Exception", MessageBoxButton.OK,
                 MessageBoxImage.Error);
+
             Current.Shutdown();
         }
 

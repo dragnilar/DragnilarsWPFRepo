@@ -1,4 +1,4 @@
-﻿<UserControl xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  x:Class="SqlJoinyJoins.SettingsPage"
+﻿<UserControl xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  x:Class="SqlJoinyJoins.Views.SettingsPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,7 +13,7 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock FontSize="35" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <Image Source="icons8_Database_Administrator_96px.png" HorizontalAlignment="Left" Width="62" Height="62"></Image>
+            <Image Source="../icons8_Database_Administrator_96px.png" HorizontalAlignment="Left" Width="62" Height="62"></Image>
              <Run Text="Settings"/>
         </TextBlock>
         <Separator Grid.Row="0" VerticalAlignment="Bottom"></Separator>

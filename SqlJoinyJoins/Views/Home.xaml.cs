@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace SqlJoinyJoins
+namespace SqlJoinyJoins.Views
 {
     /// <summary>
     /// Interaction logic for MainPage.xaml

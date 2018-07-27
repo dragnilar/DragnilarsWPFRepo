@@ -21,13 +21,13 @@ using SqlJoinyJoins.Models;
 namespace SqlJoinyJoins.Views
 {
     /// <summary>
-    /// Interaction logic for FullInnerJoinView.xaml
+    /// Interaction logic for InnerJoinView.xaml
     /// </summary>
-    public partial class FullInnerJoinView : UserControl
+    public partial class InnerJoinView : UserControl
     {
         public ExampleData ViewData = new ExampleData();
 
-        public FullInnerJoinView()
+        public InnerJoinView()
         {
             InitializeComponent();
             SetUpControls();

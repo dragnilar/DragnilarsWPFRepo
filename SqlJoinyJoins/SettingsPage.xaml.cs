@@ -1,7 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
+using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
+using System.Windows.Markup;
 using DevExpress.Xpf.Core;
+using DevExpress.Xpf.WindowsUI;
+using SqlJoinyJoins.ViewModels;
 
 namespace SqlJoinyJoins
 {
@@ -16,53 +26,12 @@ namespace SqlJoinyJoins
             SetUpControls();
         }
 
+        public SettingsPageViewModel vm;
+
         private void SetUpControls()
         {
-            if (App.Config.DatabaseType == Globals.GlobalStrings.DataBaseTypes.SqlLite)
-            {
-                ListBoxEditServerType.SelectedItem = ListBoxEditItemSqlite;
-            }
-            else if (App.Config.DatabaseType == Globals.GlobalStrings.DataBaseTypes.MsSqlLocalDb)
-            {
-                ListBoxEditServerType.SelectedItem = ListBoxEditItemMsSqlLocalDb;
-            }
-
-            else if (App.Config.DatabaseType == Globals.GlobalStrings.DataBaseTypes.MsSql)
-            {
-                ListBoxEditServerType.SelectedItem = ListBoxEditItemMsSql;
-            }
-
-            else
-            {
-                ListBoxEditServerType.SelectedItem = ListBoxEditItemSqlite;
-            }
-        }
-
-        private void SimpleButtonSave_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (Equals(ListBoxEditServerType.SelectedItem, ListBoxEditItemSqlite))
-            {
-                App.Config.DatabaseType = Globals.GlobalStrings.DataBaseTypes.SqlLite;
-
-            }
-
-            else if (Equals(ListBoxEditServerType.SelectedItem, ListBoxEditItemMsSqlLocalDb))
-            {
-                App.Config.DatabaseType = Globals.GlobalStrings.DataBaseTypes.MsSqlLocalDb;
-            }
-
-            else if (Equals(ListBoxEditServerType.SelectedItem, ListBoxEditItemMsSql))
-            {
-                App.Config.DatabaseType = Globals.GlobalStrings.DataBaseTypes.MsSql;
-            }
-
-            else
-            {
-                App.Config.DatabaseType = Globals.GlobalStrings.DataBaseTypes.SqlLite;
-            }
-
-            App.Config.Save();
-            DXMessageBox.Show("SettingsPage Saved!", "SettingsPage Saved", MessageBoxButton.OK, MessageBoxImage.Information);
+            vm = new SettingsPageViewModel();
+            DataContext = vm;
         }
     }
 }

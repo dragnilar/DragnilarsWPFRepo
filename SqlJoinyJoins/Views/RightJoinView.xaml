@@ -11,7 +11,7 @@
     <Grid>
         <Grid Name="MainGrid">
             <Grid.RowDefinitions>
-                <RowDefinition Height="120*"></RowDefinition>
+                <RowDefinition Height="80*"></RowDefinition>
                 <RowDefinition Height="200*"></RowDefinition>
                 <RowDefinition Height="150*"></RowDefinition>
                 <RowDefinition Height="277*"></RowDefinition>
@@ -46,7 +46,10 @@
                     </dxg:GridControl.View>
                 </dxg:GridControl>
             </Grid>
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="Right Join" FontSize="50"></TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Right Join" FontSize="50">
+                <Image Height="62" Source="../icons8_Database_Administrator_96px.png" Stretch="Fill" Width="62"
+                       HorizontalAlignment="Left"/>
+            </TextBlock>
             <Separator Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="1" VerticalAlignment="Bottom" Height="2" Margin="0,0,0,0"></Separator>
             <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" Name="GridTextEdits">
                 <Grid.ColumnDefinitions>
@@ -55,7 +58,8 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Content="Explanation" VerticalAlignment="Top" Margin="10,0,0,0"></Label>
                 <dxe:TextEdit Grid.Column="0" Text="{Binding Explanation, Mode=OneWay}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
-                              IsReadOnly="True" Margin="10,25,10,10" HorizontalAlignment="Stretch"/>
+                              IsReadOnly="True" Margin="10,25,10,10" HorizontalAlignment="Stretch"
+                              TextWrapping="WrapWithOverflow"/>
                 <Label Grid.Column="1" Content="Query Used" VerticalAlignment="Top" Margin="10,0,0,0"></Label>
                 <dxe:TextEdit Grid.Column="1" Text="{Binding QueryUsed, Mode=OneWay}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
                               IsReadOnly="True" Margin="10,25,10,10" HorizontalAlignment="Stretch"/>

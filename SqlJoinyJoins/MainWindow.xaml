@@ -11,7 +11,8 @@
                  xmlns:views="clr-namespace:SqlJoinyJoins.Views"
                  xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
                  mc:Ignorable="d"
-                 Title="MainWindow">
+                 Title="MainWindow"
+                 Icon="icons8_Database_Administrator_96px.png">
     <dxwui:HamburgerMenu OpenPaneWidth="200"
                          SelectedItem="{Binding HamburgerMenuSelectedItem, Mode=TwoWay}"
                          NavigationTarget="{Binding ElementName=service}">
@@ -29,8 +30,8 @@
         <dxwui:HamburgerMenuItemSeparator/>
         <dxwui:HamburgerSubMenu Content="Joins Menu" Glyph="{dx:DXImageOffice2013 Image=Database_32x32.png}" dxb:ImageColorizer.IsEnabled="True">
             <dxwui:HamburgerSubMenu.Items>
-                <dxwui:HamburgerSubMenuNavigationButton Content="Full Inner Join" PreviewContent="Full Inner Join" ShowInPreview="True" SelectOnClick="False"
-                                                        NavigationTargetType="{x:Type views:FullInnerJoinView}" ToolTip="View an example on a Full Inner Join"/>
+                <dxwui:HamburgerSubMenuNavigationButton Content="Inner Join" PreviewContent="Inner Join" ShowInPreview="True" SelectOnClick="False"
+                                                        NavigationTargetType="{x:Type views:InnerJoinView}" ToolTip="View an example on a Inner Join"/>
                 <dxwui:HamburgerSubMenuNavigationButton Content="Full Outer Join" PreviewContent="Full Outer Join" ShowInPreview="True" SelectOnClick="False"
                                                         NavigationTargetType="{x:Type views:FullOuterJoinView}" ToolTip="View an example on a Full Outer Join"/>
                 <dxwui:HamburgerSubMenuNavigationButton Content="Left Join" PreviewContent="Left Join" ShowInPreview="True"

@@ -7,13 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
-        
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="32">
             <Image Height="62" Source="icons8_Database_Administrator_96px.png" Stretch="Fill" Width="62"
-                   HorizontalAlignment="Left"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left"
-                       FontSize="32"><Run Text="INNER, LEFT, RIGHT, OUTER... Join"/></TextBlock>
-            <Separator BorderThickness="1"></Separator>
+                                                HorizontalAlignment="Left"/><Run Text="Welcome To Join"/>
+         </TextBlock>
+        <Separator Grid.Row="0" VerticalAlignment="Bottom"></Separator>
+        <StackPanel Grid.Row="1">
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
             <TextBlock Text="     • This is a silly tutorial / example list of SQL Joins" FontSize="20"></TextBlock>

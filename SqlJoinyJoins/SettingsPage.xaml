@@ -8,11 +8,14 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Name="GridMain">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label FontSize="25" Grid.Row="0">SettingsPage Menu</Label>
+        <TextBlock FontSize="35" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Image Source="icons8_Database_Administrator_96px.png" HorizontalAlignment="Left" Width="62" Height="62"></Image>
+             <Run Text="Settings"/>
+        </TextBlock>
         <Separator Grid.Row="0" VerticalAlignment="Bottom"></Separator>
         <Grid Grid.Row="1" Name="GridBody">
             <Grid.ColumnDefinitions>
@@ -21,19 +24,18 @@
                 <ColumnDefinition Width="5"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="25"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Content="Database Type" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom"></Label>
-            <dxe:ListBoxEdit Grid.Row="1" Grid.Column="1" Name="ListBoxEditServerType" StyleSettings="{dxe:RadioListBoxEditStyleSettings}">
-                <dxe:ListBoxEditItem Name="ListBoxEditItemSqlite">Sqlite (Default)</dxe:ListBoxEditItem>
-                <dxe:ListBoxEditItem Name="ListBoxEditItemMsSql">Microsoft Sql Server</dxe:ListBoxEditItem>
-                <dxe:ListBoxEditItem Name="ListBoxEditItemMsSqlLocalDb">Microsoft Sql Server (Local DB)</dxe:ListBoxEditItem>
+            <Label Content="Database Type" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" FontSize="20"></Label>
+            <dxe:ListBoxEdit Grid.Row="1" Grid.Column="1" Name="ListBoxEditServerType" StyleSettings="{dxe:RadioListBoxEditStyleSettings}"
+                             ItemsSource="{Binding ServerTypeItems}" EditValue="{Binding SelectedServerType}"
+                             DisplayMember="DisplayValue" MaxHeight="100" FontSize="16">
             </dxe:ListBoxEdit>
             <dx:SimpleButton Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Width="100" Name="SimpleButtonSave"
-                             Click="SimpleButtonSave_OnClick">Save SettingsPage</dx:SimpleButton>
+                             Command="{Binding SaveSettingsCommand}">Save Settings</dx:SimpleButton>
         </Grid>
     </Grid>
 </UserControl>

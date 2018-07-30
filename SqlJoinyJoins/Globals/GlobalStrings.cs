@@ -6,9 +6,9 @@
 
         public static class DataBaseTypes
         {
-            public static string MsSql = "MSSQL";
-            public static string MsSqlLocalDb = "MSSQL-LocalDB";
-            public static string SqlLite = "SqlLite";
+            public const string MsSql = "MSSQL";
+            public const string MsSqlLocalDb = "MSSQL-LocalDB";
+            public const string SqlLite = "SqlLite";
 
         }
 

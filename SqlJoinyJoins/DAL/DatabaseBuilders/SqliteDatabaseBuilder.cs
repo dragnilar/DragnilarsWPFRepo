@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using SqlJoinyJoins.Classes;
 using SqlJoinyJoins.Factories;
 using SqlJoinyJoins.Models;
 
-namespace SqlJoinyJoins.DAL
+namespace SqlJoinyJoins.DAL.DatabaseBuilders
 {
-    public class SqliteDatabaseBuilder
+    public class SqliteDatabaseBuilder: DatabaseBuilder
     {
-        public bool DoesDatabaseExist()
+
+        public override bool DoesDatabaseExist()
         {
             var result = true;
             var context = new SqlLiteDbContext(DataAccess.GetDefaultSqliteConnection(), false);
@@ -30,7 +27,7 @@ namespace SqlJoinyJoins.DAL
 
             return result;
         }
-        public void CreateSqlLiteDatabase()
+        public override void CreateDatabase()
         {
             var context = new SqlLiteDbContext(DataAccess.GetDefaultSqliteConnection(), false);
 

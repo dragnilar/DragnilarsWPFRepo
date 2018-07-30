@@ -225,8 +225,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DAL\DataAccess.cs" />
-    <Compile Include="DAL\MsSqlServerDatabaseBuilder.cs" />
-    <Compile Include="DAL\SqliteDatabaseBuilder.cs" />
+    <Compile Include="DAL\DatabaseBuilders\DatabaseBuilder.cs" />
+    <Compile Include="DAL\DatabaseBuilders\MsSqlServerDatabaseBuilder.cs" />
+    <Compile Include="DAL\DatabaseBuilders\SqliteDatabaseBuilder.cs" />
     <Compile Include="DAL\SqlLiteDbContext.cs" />
     <Compile Include="DAL\SqlLiteDbContextInitializer.cs" />
     <Compile Include="Factories\DefaultDataFactory.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="DXSplashScreen\Splashy.xaml.cs">
       <DependentUpon>Splashy.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\DatabaseBuilderService.cs" />
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>

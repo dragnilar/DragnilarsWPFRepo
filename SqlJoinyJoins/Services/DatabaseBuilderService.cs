@@ -16,28 +16,31 @@ namespace SqlJoinyJoins.Services
 {
     public class DatabaseBuilderService
     {
+        private readonly DatabaseBuilder _builder;
+
+        public DatabaseBuilderService()
+        {
+            switch (App.Config.DatabaseType)
+            {
+                case Globals.GlobalStrings.DataBaseTypes.SqlLite:
+                    _builder = new SqliteDatabaseBuilder();
+                    break;
+                case Globals.GlobalStrings.DataBaseTypes.MsSqlLocalDb:
+                case Globals.GlobalStrings.DataBaseTypes.MsSql:
+                    _builder = new MsSqlServerDatabaseBuilder();
+                    break;
+                default:
+                    _builder = new SqliteDatabaseBuilder(); //Fall back on Sqlite since its the only one that is truly stand alone
+                    break;
+            }
+        }
 
         public bool DoesDatabaseExist()
         {
 
             try
             {
-                switch (App.Config.DatabaseType)
-                {
-
-                    case Globals.GlobalStrings.DataBaseTypes.SqlLite:
-                        return new SqliteDatabaseBuilder().DoesDatabaseExist();
-                        break;
-                    case Globals.GlobalStrings.DataBaseTypes.MsSqlLocalDb:
-                    case Globals.GlobalStrings.DataBaseTypes.MsSql:
-                        return new MsSqlServerDatabaseBuilder().DoesDatabaseExist();
-                        break;
-                    default:
-                        return new SqliteDatabaseBuilder().DoesDatabaseExist(); //Fall back on Sqlite since its the only one that is truly stand alone
-                        break;
-
-                }
-
+                return _builder.DoesDatabaseExist();
             }
             catch (Exception e)
             {
@@ -49,21 +52,12 @@ namespace SqlJoinyJoins.Services
 
         public void CreateDatabaseIfItDoesNotExist()
         {
+            
             try
             {
-                switch (App.Config.DatabaseType)
+                if (!_builder.DoesDatabaseExist())
                 {
-                    case Globals.GlobalStrings.DataBaseTypes.SqlLite:
-                        CreateSqliteDatabaseIfNotExists();
-                        break;
-                    case Globals.GlobalStrings.DataBaseTypes.MsSqlLocalDb:
-                    case Globals.GlobalStrings.DataBaseTypes.MsSql:
-                        CreateMsSqlLocalDbDatabaseIfNotExists();
-                        break;
-                    default:
-                        CreateSqliteDatabaseIfNotExists(); //Fall back on Sqlite since its the only one that is truly stand alone
-                        break;
-
+                    _builder.CreateDatabase();
                 }
 
             }
@@ -73,29 +67,6 @@ namespace SqlJoinyJoins.Services
             }
             
 
-        }
-
-
-
-        private void CreateSqliteDatabaseIfNotExists()
-        {
-            DatabaseBuilder builder = new SqliteDatabaseBuilder();
-
-
-            if (!builder.DoesDatabaseExist())
-            {
-                builder.CreateDatabase();
-            }
-
-        }
-
-        private void CreateMsSqlLocalDbDatabaseIfNotExists()
-        {
-            var dbBuilder = new MsSqlServerDatabaseBuilder();
-            if (!dbBuilder.DoesDatabaseExist())
-            {
-                dbBuilder.CreateAndPopulateTestDatabase();
-            }
         }
 
         private void HandleDatabaseBuildException(Exception e)

@@ -17,6 +17,7 @@ namespace SqlJoinyJoins
     public partial class App : Application
     {
         public static readonly Config Config = new Config();
+        public static DatabaseBuilderService DBBuilder = new DatabaseBuilderService();
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -58,12 +59,12 @@ namespace SqlJoinyJoins
         {
             DXSplashScreen.Show<Splashy>();
             DXSplashScreen.SetState("Loading...");
-            var service = new DatabaseBuilderService();
+            Thread.Sleep(1000);
             DXSplashScreen.SetState("Checking For Database....");
-            if (!service.DoesDatabaseExist())
+            if (!DBBuilder.DoesDatabaseExist())
             {
                 DXSplashScreen.SetState("Creating Test Database....");
-                service.CreateDatabaseIfItDoesNotExist();
+                DBBuilder.CreateDatabaseIfItDoesNotExist();
                 DXSplashScreen.SetState("Finished creating database....");
             }
             DXSplashScreen.Close();

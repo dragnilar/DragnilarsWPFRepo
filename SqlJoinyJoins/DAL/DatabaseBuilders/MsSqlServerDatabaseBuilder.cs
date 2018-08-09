@@ -6,16 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Management.Smo;
 using SqlJoinyJoins.Classes;
+using SqlJoinyJoins.DAL.DatabaseBuilders;
 using SqlJoinyJoins.Globals;
 
 namespace SqlJoinyJoins.Classes
 {
-    public class MsSqlServerDatabaseBuilder
+    public class MsSqlServerDatabaseBuilder : DatabaseBuilder
     {
 
 
 
-        public void CreateAndPopulateTestDatabase()
+        public override void CreateDatabase()
         {
             try
             {
@@ -28,6 +29,7 @@ namespace SqlJoinyJoins.Classes
                 Console.WriteLine(e);
             }
         }
+
         private void CreateTestDatabase()
         {
             var server = DataAccess.GetLocalMsSqlServer();
@@ -52,7 +54,7 @@ namespace SqlJoinyJoins.Classes
 
         }
 
-        public bool DoesDatabaseExist()
+        public override bool DoesDatabaseExist()
         {
             var server = DataAccess.GetLocalMsSqlServer();
 

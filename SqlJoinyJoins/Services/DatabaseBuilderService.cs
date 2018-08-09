@@ -17,6 +17,36 @@ namespace SqlJoinyJoins.Services
     public class DatabaseBuilderService
     {
 
+        public bool DoesDatabaseExist()
+        {
+
+            try
+            {
+                switch (App.Config.DatabaseType)
+                {
+
+                    case Globals.GlobalStrings.DataBaseTypes.SqlLite:
+                        return new SqliteDatabaseBuilder().DoesDatabaseExist();
+                        break;
+                    case Globals.GlobalStrings.DataBaseTypes.MsSqlLocalDb:
+                    case Globals.GlobalStrings.DataBaseTypes.MsSql:
+                        return new MsSqlServerDatabaseBuilder().DoesDatabaseExist();
+                        break;
+                    default:
+                        return new SqliteDatabaseBuilder().DoesDatabaseExist(); //Fall back on Sqlite since its the only one that is truly stand alone
+                        break;
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                HandleDatabaseBuildException(e);
+                return false;
+            }
+        }
+
+
         public void CreateDatabaseIfItDoesNotExist()
         {
             try

@@ -1,9 +1,13 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using DevExpress.Xpf.Core;
 using SqlJoinyJoins.Models;
+using SqlJoinyJoins.Services;
+using SqlJoinyJoins.Views;
 
 namespace SqlJoinyJoins
 {
@@ -19,6 +23,7 @@ namespace SqlJoinyJoins
             base.OnStartup(e);
             SetupExceptionHandling();
             CheckSettings();
+            CheckDatabase();
         }
 
         private void SetupExceptionHandling()
@@ -48,5 +53,22 @@ namespace SqlJoinyJoins
         {
             if (File.Exists(Config.FullFilePath)) Config.Load();
         }
+
+        private void CheckDatabase()
+        {
+            DXSplashScreen.Show<Splashy>();
+            DXSplashScreen.SetState("Loading...");
+            var service = new DatabaseBuilderService();
+            DXSplashScreen.SetState("Checking For Database....");
+            if (!service.DoesDatabaseExist())
+            {
+                DXSplashScreen.SetState("Creating Test Database....");
+                service.CreateDatabaseIfItDoesNotExist();
+                DXSplashScreen.SetState("Finished creating database....");
+            }
+            DXSplashScreen.Close();
+        }
+
+
     }
 }

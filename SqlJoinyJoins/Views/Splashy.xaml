@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="SqlJoinyJoins.Splashy"
+    x:Class="SqlJoinyJoins.Views.Splashy"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,7 +7,6 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     mc:Ignorable="d"
-    d:DataContext="{x:Static dx:SplashScreenViewModel.DesignTimeData}"
     >
     <Grid x:Name="LayoutRoot">
         <Grid x:Name="Splash" Width="450" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0">
@@ -27,7 +26,7 @@
                 <TextBlock x:Name="TextBlockHeader" Text="SQL Joins!" FontSize="50" Grid.Row="0" Height="100" HorizontalAlignment="Center"
                            Margin="89,53,68,47" Width="250"></TextBlock>
                 <Separator Grid.Row="0" VerticalAlignment="Bottom" BorderThickness="1" BorderBrush="Black"></Separator>
-                <TextBlock x:Name="Info" TextWrapping="Wrap" Text="{Binding State}" Grid.Row="1" Margin="12,12,12,0" Foreground="#FF2D2D2D"/>
+                <TextBlock x:Name="Info" TextWrapping="Wrap" Text="{Binding State, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Margin="12,12,12,0" Foreground="#FF2D2D2D"/>
                 <ProgressBar x:Name="progressBar"
                              Height="12"
                              Grid.Row="2"

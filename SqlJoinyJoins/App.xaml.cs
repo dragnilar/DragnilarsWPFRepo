@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Data.Common;
-using System.Data.SQLite;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using DevExpress.Mvvm;
 using DevExpress.Xpf.Core;
-using SqlJoinyJoins.Classes;
-using SqlJoinyJoins.DAL;
-using SqlJoinyJoins.Factories;
 using SqlJoinyJoins.Models;
-using SqlJoinyJoins.Services;
 
 namespace SqlJoinyJoins
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    ///     Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
@@ -27,21 +19,12 @@ namespace SqlJoinyJoins
             base.OnStartup(e);
             SetupExceptionHandling();
             CheckSettings();
-            RunLoadingRoutine();
-        }
-
-        private static void RunLoadingRoutine()
-        {
-            DXSplashScreen.Show<Splashy>();
-            DXSplashScreen.SetState("Loading...");
-            var service = new DatabaseBuilderService();
-            service.CreateDatabaseIfItDoesNotExist();
         }
 
         private void SetupExceptionHandling()
         {
             AppDomain.CurrentDomain.UnhandledException += (s, e) =>
-                LogUnhandledException((Exception)e.ExceptionObject, "AppDomain.CurrentDomain.UnhandledException");
+                LogUnhandledException((Exception) e.ExceptionObject, "AppDomain.CurrentDomain.UnhandledException");
 
             DispatcherUnhandledException += (s, e) =>
                 LogUnhandledException(e.Exception, "Application.Current.DispatcherUnhandledException");
@@ -53,10 +36,7 @@ namespace SqlJoinyJoins
         private void LogUnhandledException(Exception eExceptionObject, string source)
         {
             //TODO CHANGE ME
-            if (DXSplashScreen.IsActive)
-            {
-                DXSplashScreen.Close();
-            }
+            if (DXSplashScreen.IsActive) DXSplashScreen.Close();
 
             MessageBox.Show(eExceptionObject.ToString(), "Unhandled Exception", MessageBoxButton.OK,
                 MessageBoxImage.Error);
@@ -66,10 +46,7 @@ namespace SqlJoinyJoins
 
         private void CheckSettings()
         {
-            if (File.Exists(Config.FullFilePath))
-            {
-                Config.Load();
-            }
+            if (File.Exists(Config.FullFilePath)) Config.Load();
         }
     }
 }

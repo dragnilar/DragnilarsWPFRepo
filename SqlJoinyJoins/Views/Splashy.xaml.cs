@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DevExpress.Xpf.Core;
 
-namespace SqlJoinyJoins
+namespace SqlJoinyJoins.Views
 {
     /// <summary>
     /// Interaction logic for Splashy.xaml

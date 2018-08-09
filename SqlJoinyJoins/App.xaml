@@ -4,8 +4,9 @@
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:sqlJoinyJoins="clr-namespace:SqlJoinyJoins"
+             xmlns:viewModels="clr-namespace:SqlJoinyJoins.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
+        <viewModels:SettingsPageViewModel x:Key="SettingsPageViewModel" />
     </Application.Resources>
 </Application>

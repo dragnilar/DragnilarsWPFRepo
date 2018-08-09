@@ -10,6 +10,7 @@
                  xmlns:local="clr-namespace:SqlJoinyJoins"
                  xmlns:views="clr-namespace:SqlJoinyJoins.Views"
                  xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+                 xmlns:ViewModels="clr-namespace:SqlJoinyJoins.ViewModels"
                  mc:Ignorable="d"
                  Title="SQL Joiny Joins"
                  Icon="icons8_Database_Administrator_96px.png">

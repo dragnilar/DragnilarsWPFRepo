@@ -11,12 +11,6 @@ namespace SqlJoinyJoins
         public MainWindow()
         {
             InitializeComponent();
-            this.Loaded += OnLoaded;
-        }
-
-        private void OnLoaded(object sender, RoutedEventArgs e)
-        {
-            DXSplashScreen.Close();
         }
     }
 }

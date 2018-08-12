@@ -11,15 +11,6 @@ namespace SqlJoinyJoins.Views
         public SettingsPage()
         {
             InitializeComponent();
-           // SetUpControls();
         }
-
-        //public SettingsPageViewModel vm;
-
-        //private void SetUpControls()
-        //{
-        //    vm = new SettingsPageViewModel();
-        //    DataContext = vm;
-        //}
     }
 }

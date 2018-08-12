@@ -184,6 +184,9 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="SQLite.CodeFirst, Version=1.5.1.25, Culture=neutral, PublicKeyToken=eb96ba0a78d831a7, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLite.CodeFirst.1.5.1.25\lib\net45\SQLite.CodeFirst.dll</HintPath>
     </Reference>
@@ -234,6 +237,7 @@
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\ExampleData.cs" />
     <Compile Include="Globals\GlobalStrings.cs" />
+    <Compile Include="Services\MessageBoxService.cs" />
     <Compile Include="Views\Splashy.xaml.cs">
       <DependentUpon>Splashy.xaml</DependentUpon>
     </Compile>

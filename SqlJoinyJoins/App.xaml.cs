@@ -19,7 +19,6 @@ namespace SqlJoinyJoins
     public partial class App : Application
     {
         public static readonly Config Config = new Config();
-        public static DatabaseBuilderService DBBuilder = new DatabaseBuilderService();
         public static IKernel Ninject;
 
         protected override void OnStartup(StartupEventArgs e)
@@ -28,7 +27,7 @@ namespace SqlJoinyJoins
             SetupExceptionHandling();
             Ninject = SetUpNinjectKernel();
             CheckSettings();
-            CheckDatabase();
+            CheckDatabase(Ninject.Get<DatabaseBuilderService>());
             Current.MainWindow = Ninject.Get<MainWindow>();
             Current.MainWindow.Show();
         }
@@ -38,7 +37,8 @@ namespace SqlJoinyJoins
         {
             var modules = new INinjectModule[]
             {
-                new MessageBoxService()
+                new MessageBoxService(),
+                new DatabaseBuilderService()
             };
 
             return new StandardKernel(modules);
@@ -72,16 +72,16 @@ namespace SqlJoinyJoins
             if (File.Exists(Config.FullFilePath)) Config.Load();
         }
 
-        private void CheckDatabase()
+        private void CheckDatabase(IDatabaseBuilderService service)
         {
             DXSplashScreen.Show<Splashy>();
             DXSplashScreen.SetState("Loading...");
             Thread.Sleep(1000);
             DXSplashScreen.SetState("Checking For Database....");
-            if (!DBBuilder.DoesDatabaseExist())
+            if (!service.DoesDatabaseExist())
             {
                 DXSplashScreen.SetState("Creating Test Database....");
-                DBBuilder.CreateDatabaseIfItDoesNotExist();
+                service.CreateDatabaseIfItDoesNotExist();
                 DXSplashScreen.SetState("Finished creating database....");
             }
             DXSplashScreen.Close();

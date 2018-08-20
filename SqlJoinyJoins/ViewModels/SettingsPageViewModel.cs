@@ -18,7 +18,7 @@ namespace SqlJoinyJoins.ViewModels
 
         private ICommand _saveSettingsCommand;
 
-        protected IWindowsUIMessageBoxService WindowsUiMessageBoxService;
+        protected IWindowsUIMessageBoxService WindowsUiMessageBoxService; 
 
         public ObservableCollection<ServerTypeItem> ServerTypeItems { get; set; }
 

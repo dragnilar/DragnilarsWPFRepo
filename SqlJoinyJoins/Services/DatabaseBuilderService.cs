@@ -7,6 +7,7 @@ using System.Windows;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
 using DevExpress.Xpf.Core;
+using Ninject.Modules;
 using SqlJoinyJoins.Classes;
 using SqlJoinyJoins.DAL;
 using SqlJoinyJoins.DAL.DatabaseBuilders;
@@ -14,7 +15,13 @@ using SqlJoinyJoins.Models;
 
 namespace SqlJoinyJoins.Services
 {
-    public class DatabaseBuilderService
+    public interface IDatabaseBuilderService
+    {
+        bool DoesDatabaseExist();
+        void CreateDatabaseIfItDoesNotExist();
+    }
+
+    public class DatabaseBuilderService : NinjectModule, IDatabaseBuilderService
     {
         private readonly DatabaseBuilder _builder;
 
@@ -85,5 +92,9 @@ namespace SqlJoinyJoins.Services
         }
 
 
+        public override void Load()
+        {
+            Bind<IDatabaseBuilderService>().ToSelf().InSingletonScope();
+        }
     }
 }

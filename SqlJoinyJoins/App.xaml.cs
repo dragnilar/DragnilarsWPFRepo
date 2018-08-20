@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using DevExpress.Xpf.Core;
 using Ninject;
+using Ninject.Modules;
 using SqlJoinyJoins.Models;
 using SqlJoinyJoins.Services;
 using SqlJoinyJoins.Views;
@@ -19,19 +20,30 @@ namespace SqlJoinyJoins
     {
         public static readonly Config Config = new Config();
         public static DatabaseBuilderService DBBuilder = new DatabaseBuilderService();
-        private IKernel Ninject;
+        public static IKernel Ninject;
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             SetupExceptionHandling();
-            Ninject = new StandardKernel();
+            Ninject = SetUpNinjectKernel();
             CheckSettings();
             CheckDatabase();
             Current.MainWindow = Ninject.Get<MainWindow>();
             Current.MainWindow.Show();
         }
 
+
+        private StandardKernel SetUpNinjectKernel()
+        {
+            var modules = new INinjectModule[]
+            {
+                new MessageBoxService()
+            };
+
+            return new StandardKernel(modules);
+        }
+    
         private void SetupExceptionHandling()
         {
             AppDomain.CurrentDomain.UnhandledException += (s, e) =>

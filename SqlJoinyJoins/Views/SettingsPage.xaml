@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
-             DataContext="{StaticResource SettingsPageViewModel}">
+             d:DesignHeight="300" d:DesignWidth="300">
     <Grid Name="GridMain">
         <Grid.RowDefinitions>
             <RowDefinition Height="75"></RowDefinition>

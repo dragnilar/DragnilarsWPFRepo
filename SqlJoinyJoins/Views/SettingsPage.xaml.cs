@@ -1,4 +1,6 @@
 ﻿using System.Windows.Controls;
+using Ninject;
+using SqlJoinyJoins.Services;
 using SqlJoinyJoins.ViewModels;
 
 namespace SqlJoinyJoins.Views
@@ -11,6 +13,7 @@ namespace SqlJoinyJoins.Views
         public SettingsPage()
         {
             InitializeComponent();
+            DataContext = new SettingsPageViewModel(App.Ninject.Get<MessageBoxService>());
         }
     }
 }

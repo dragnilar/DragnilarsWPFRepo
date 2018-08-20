@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
+using DevExpress.Mvvm;
 using DevExpress.Xpf.WindowsUI;
+using Ninject;
 using SqlJoinyJoins.Globals;
 using SqlJoinyJoins.Models;
+using SqlJoinyJoins.Services;
 
 namespace SqlJoinyJoins.ViewModels
 {
@@ -14,14 +18,18 @@ namespace SqlJoinyJoins.ViewModels
 
         private ICommand _saveSettingsCommand;
 
+        protected IWindowsUIMessageBoxService WindowsUiMessageBoxService;
+
         public ObservableCollection<ServerTypeItem> ServerTypeItems { get; set; }
 
         public object SelectedServerType { get; set; }
 
         public ICommand SaveSettingsCommand => _saveSettingsCommand ?? (_saveSettingsCommand = new SettingsPageCommand(SaveSettings, _canExecute));
 
-        public SettingsPageViewModel()
+
+        public SettingsPageViewModel(IWindowsUIMessageBoxService messageBoxService)
         {
+            WindowsUiMessageBoxService = messageBoxService;
             CreateList();
             SelectedServerType = ServerTypeItems.FirstOrDefault(r => r.ServerType == App.Config.DatabaseType);
         }
@@ -39,8 +47,8 @@ namespace SqlJoinyJoins.ViewModels
         {
             App.Config.DatabaseType = ((ServerTypeItem) SelectedServerType).ServerType;
             App.Config.Save();
-            WinUIMessageBox.Show("Settings have been saved. If you changed your server type, \n" +
-                                 "you should restart the application.", "Settings Saved");
+            WindowsUiMessageBoxService.ShowMessage("Settings have been saved. If you changed your server type, \n" +
+                                 "you should restart the application.", "Settings Saved", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
 

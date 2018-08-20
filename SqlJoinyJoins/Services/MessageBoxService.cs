@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using DevExpress.Xpf.WindowsUI;
+using Ninject.Modules;
 
 namespace SqlJoinyJoins.Services
 {
@@ -13,11 +14,16 @@ namespace SqlJoinyJoins.Services
     {
         MessageBoxResult ShowMessage(string text, string caption, MessageBoxButton button, MessageBoxImage icon);
     }
-    class MessageBoxService : IWindowsUIMessageBoxService
+    class MessageBoxService : NinjectModule, IWindowsUIMessageBoxService
     {
         public MessageBoxResult ShowMessage(string text, string caption, MessageBoxButton button, MessageBoxImage icon)
         {
             return WinUIMessageBox.Show(text, caption, button, icon);
+        }
+
+        public override void Load()
+        {
+            Bind<IWindowsUIMessageBoxService>().ToSelf().InSingletonScope();
         }
     }
 

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SqlJoinyJoins.Classes;
+using SqlJoinyJoins.DAL;
 using SqlJoinyJoins.Globals;
 using SqlJoinyJoins.Models;
 

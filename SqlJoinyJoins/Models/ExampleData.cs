@@ -8,10 +8,13 @@ namespace SqlJoinyJoins.Models
 
         public string QueryUsed { get; set; }
 
+        public string Title { get; set; }
+
         public DataView GridSource { get; set; }
 
         public DataView TableOneSource { get; set; }
 
         public DataView TableTwoSource { get; set; }
+
     }
 }

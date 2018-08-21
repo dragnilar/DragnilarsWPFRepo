@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DevExpress.Xpf.Core.HandleDecorator;
 using SqlJoinyJoins.Classes;
+using SqlJoinyJoins.DAL;
 using SqlJoinyJoins.Globals;
 using SqlJoinyJoins.Models;
 

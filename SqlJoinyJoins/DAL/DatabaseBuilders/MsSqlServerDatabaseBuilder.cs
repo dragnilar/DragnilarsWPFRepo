@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Management.Smo;
 using SqlJoinyJoins.Classes;
+using SqlJoinyJoins.DAL;
 using SqlJoinyJoins.DAL.DatabaseBuilders;
 using SqlJoinyJoins.Globals;
 

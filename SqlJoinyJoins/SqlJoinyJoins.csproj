@@ -237,7 +237,13 @@
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\ExampleData.cs" />
     <Compile Include="Globals\GlobalStrings.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Services\MessageBoxService.cs" />
+    <Compile Include="ViewModels\JoinViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\JoinView.xaml.cs">
+      <DependentUpon>JoinView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Splashy.xaml.cs">
       <DependentUpon>Splashy.xaml</DependentUpon>
     </Compile>
@@ -273,6 +279,9 @@
     <Compile Include="Views\RightJoinView.xaml.cs">
       <DependentUpon>RightJoinView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\JoinView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Splashy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

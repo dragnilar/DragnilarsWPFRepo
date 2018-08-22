@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.Mvvm;
 using SqlJoinyJoins.Models;
 
 namespace SqlJoinyJoins.ViewModels
@@ -18,13 +19,19 @@ namespace SqlJoinyJoins.ViewModels
         private string _queryUsed;
         private string _title;
 
-        public JoinViewModel(ExampleData data)
+        public JoinViewModel()
         {
-            _gridSource = data.GridSource;
-            _tableOneSource = data.TableOneSource;
-            _tableTwoSource = data.TableTwoSource;
-            _queryUsed = data.QueryUsed;
-            _explanation = data.Explanation;
+
+        }
+
+        public void SetViewData(ExampleData data)
+        {
+            GridSource = data.GridSource;
+            TableOneSource = data.TableOneSource;
+            TableTwoSource = data.TableTwoSource;
+            Explanation = data.Explanation;
+            QueryUsed = data.QueryUsed;
+            Title = data.Title;
         }
 
         public DataView GridSource
@@ -97,5 +104,6 @@ namespace SqlJoinyJoins.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
     }
 }

@@ -238,9 +238,9 @@
     <Compile Include="Models\ExampleData.cs" />
     <Compile Include="Globals\GlobalStrings.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Services\JoinModelService.cs" />
     <Compile Include="Services\MessageBoxService.cs" />
     <Compile Include="ViewModels\JoinViewModel.cs" />
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\JoinView.xaml.cs">
       <DependentUpon>JoinView.xaml</DependentUpon>
     </Compile>
@@ -264,21 +264,6 @@
       <DependentUpon>TableGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
-    <Compile Include="Views\CrossJoinView.xaml.cs">
-      <DependentUpon>CrossJoinView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\InnerJoinView.xaml.cs">
-      <DependentUpon>InnerJoinView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FullOuterJoinView.xaml.cs">
-      <DependentUpon>FullOuterJoinView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LeftJoinView.xaml.cs">
-      <DependentUpon>LeftJoinView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RightJoinView.xaml.cs">
-      <DependentUpon>RightJoinView.xaml</DependentUpon>
-    </Compile>
     <Page Include="Views\JoinView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -311,26 +296,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TableGrid.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CrossJoinView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\InnerJoinView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\FullOuterJoinView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LeftJoinView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RightJoinView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

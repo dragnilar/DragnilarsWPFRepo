@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
+using SqlJoinyJoins.Annotations;
 using SqlJoinyJoins.Models;
 
 namespace SqlJoinyJoins.ViewModels
@@ -21,10 +22,15 @@ namespace SqlJoinyJoins.ViewModels
 
         public JoinViewModel()
         {
-
+            Messenger.Default.Register<ExampleData>(this, OnExampleDataMessage);
         }
 
-        public void SetViewData(ExampleData data)
+        private void OnExampleDataMessage(ExampleData data)
+        {
+            SetViewData(data);
+        }
+
+        private void SetViewData(ExampleData data)
         {
             GridSource = data.GridSource;
             TableOneSource = data.TableOneSource;
@@ -90,10 +96,9 @@ namespace SqlJoinyJoins.ViewModels
             set
             {
                 _title = value;
-                NotifyChanges(this, new PropertyChangedEventArgs("QueryUsed"));
+                NotifyChanges(this, new PropertyChangedEventArgs("Title"));
             }
         }
-
 
         private void NotifyChanges(object sender, PropertyChangedEventArgs e)
         {

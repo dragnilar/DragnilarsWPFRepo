@@ -8,6 +8,5 @@
     <Application.Resources>
         <viewModels:SettingsPageViewModel x:Key="SettingsPageViewModel" />
         <viewModels:JoinViewModel x:Key="JoinViewModel" />
-        <viewModels:MainWindowViewModel x:Key="MainWindowViewModel" />
     </Application.Resources>
 </Application>

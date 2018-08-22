@@ -18,7 +18,7 @@
                          SelectedItem="{Binding HamburgerMenuSelectedItem, Mode=TwoWay}"
                          NavigationTarget="{Binding ElementName=service}" Header="Main Menu">
         <dxwui:HamburgerMenu.Content>
-            <dxwui:NavigationFrame Source="{x:Type views:Home}">
+            <dxwui:NavigationFrame Source="{x:Type views:Home}" Navigated="NavigationFrame_OnNavigated">
                 <dxmvvm:Interaction.Behaviors>
                     <dxwuin:FrameNavigationService x:Name="service"/>
                 </dxmvvm:Interaction.Behaviors>
@@ -30,15 +30,20 @@
         <dxwui:HamburgerSubMenu Content="Types Of Joins" Glyph="{dx:DXImageOffice2013 Image=Database_32x32.png}" dxb:ImageColorizer.IsEnabled="True">
             <dxwui:HamburgerSubMenu.Items>
                 <dxwui:HamburgerSubMenuNavigationButton Content="Inner Join" PreviewContent="Inner Join" ShowInPreview="True" SelectOnClick="False"
-                                                        NavigationTargetType="{x:Type views:InnerJoinView}" ToolTip="View an example on a Inner Join"/>
+                                                        NavigationTargetType="{x:Type views:JoinView}" ToolTip="View an example on a Inner Join"
+                                                        NavigationTargetParameter="Inner"/>
                 <dxwui:HamburgerSubMenuNavigationButton Content="Full Outer Join" PreviewContent="Full Outer Join" ShowInPreview="True" SelectOnClick="False"
-                                                        NavigationTargetType="{x:Type views:FullOuterJoinView}" ToolTip="View an example on a Full Outer Join"/>
+                                                        NavigationTargetType="{x:Type views:JoinView}" ToolTip="View an example on a Full Outer Join"
+                                                        NavigationTargetParameter="Outer"/>
                 <dxwui:HamburgerSubMenuNavigationButton Content="Left Join" PreviewContent="Left Join" ShowInPreview="True"
-                                                        NavigationTargetType="{x:Type views:LeftJoinView}" ToolTip="View an example on a Left Join"/>
+                                                        NavigationTargetType="{x:Type views:JoinView}" ToolTip="View an example on a Left Join"
+                                                        NavigationTargetParameter="Left"/>
                 <dxwui:HamburgerSubMenuNavigationButton Content="Right Join" PreviewContent="Right Join"  ShowInPreview="True"
-                                                        NavigationTargetType="{x:Type views:RightJoinView}" ToolTip="View an example on a Right Join"/>
+                                                        NavigationTargetType="{x:Type views:JoinView}" ToolTip="View an example on a Right Join"
+                                                        NavigationTargetParameter="Right"/>
                 <dxwui:HamburgerSubMenuNavigationButton Content="Cross Join" PreviewContent="Cross Join" ShowInPreview="True"
-                                                        NavigationTargetType="{x:Type views:CrossJoinView}" ToolTip="View an example on the dreaded CROSS Join"/>
+                                                        NavigationTargetType="{x:Type views:JoinView}" ToolTip="View an example on the dreaded CROSS Join"
+                                                        NavigationTargetParameter="Cross"/>
             </dxwui:HamburgerSubMenu.Items>
         </dxwui:HamburgerSubMenu>
         <dxwui:HamburgerMenuItemSeparator></dxwui:HamburgerMenuItemSeparator>

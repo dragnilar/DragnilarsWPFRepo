@@ -9,10 +9,10 @@ using SqlJoinyJoins.Models;
 
 namespace SqlJoinyJoins.Services
 {
-    public class JoinModelService
+    public static class ExampleDataFactory
     {
 
-        public ExampleData GetInnerJoinViewModel()
+        public static ExampleData GetInnerJoinViewModel()
         {
             var data = new ExampleData
             {
@@ -28,7 +28,7 @@ namespace SqlJoinyJoins.Services
 
         }
 
-        public ExampleData GetOuterJoinViewModel()
+        public static ExampleData GetOuterJoinViewModel()
         {
             var data = new ExampleData
             {
@@ -45,7 +45,7 @@ namespace SqlJoinyJoins.Services
 
         }
 
-        public ExampleData GetLeftJoinViewModel()
+        public static ExampleData GetLeftJoinViewModel()
         {
             var data = new ExampleData
             {
@@ -61,7 +61,7 @@ namespace SqlJoinyJoins.Services
 
         }
 
-        public ExampleData GetRightJoinViewModel()
+        public static ExampleData GetRightJoinViewModel()
         {
             var data = new ExampleData
             {
@@ -78,7 +78,7 @@ namespace SqlJoinyJoins.Services
 
         }
 
-        public ExampleData GetCrossJoinViewModel()
+        public static ExampleData GetCrossJoinViewModel()
         {
             var data = new ExampleData
             {

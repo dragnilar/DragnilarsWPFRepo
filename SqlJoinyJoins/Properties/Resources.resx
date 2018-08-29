@@ -161,7 +161,7 @@ Note: In Microsoft SQL Server, the "Outer" part is optional.
 
 So you only need to type in "Full Join" in order to get a join where it returns rows with no matches on each side.
 
-Note : Some databases do not support Right Join.
+Note : Some databases do not support Outer Joins.
 
 For example,
 Sqlite does not support it. So you may notice the query being used on the right is completely different if you are using this application with a Sqlite databases.

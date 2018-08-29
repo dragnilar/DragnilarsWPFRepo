@@ -238,7 +238,7 @@
     <Compile Include="Models\ExampleData.cs" />
     <Compile Include="Globals\GlobalStrings.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Services\JoinModelService.cs" />
+    <Compile Include="Factories\ExampleDataFactory.cs" />
     <Compile Include="Services\MessageBoxService.cs" />
     <Compile Include="ViewModels\JoinViewModel.cs" />
     <Compile Include="Views\JoinView.xaml.cs">

@@ -29,10 +29,10 @@
         <dxwui:HamburgerMenuItemSeparator/>
         <dxwui:HamburgerSubMenu Content="Types Of Joins" Glyph="{dx:DXImageOffice2013 Image=Database_32x32.png}" dxb:ImageColorizer.IsEnabled="True">
             <dxwui:HamburgerSubMenu.Items>
-                <dxwui:HamburgerSubMenuNavigationButton Content="Inner Join" PreviewContent="Inner Join" ShowInPreview="True" SelectOnClick="False"
+                <dxwui:HamburgerSubMenuNavigationButton Content="Inner Join" PreviewContent="Inner Join" ShowInPreview="True"
                                                         NavigationTargetType="{x:Type views:JoinView}" ToolTip="View an example on a Inner Join"
                                                         NavigationTargetParameter="Inner"/>
-                <dxwui:HamburgerSubMenuNavigationButton Content="Full Outer Join" PreviewContent="Full Outer Join" ShowInPreview="True" SelectOnClick="False"
+                <dxwui:HamburgerSubMenuNavigationButton Content="Full Outer Join" PreviewContent="Full Outer Join" ShowInPreview="True"
                                                         NavigationTargetType="{x:Type views:JoinView}" ToolTip="View an example on a Full Outer Join"
                                                         NavigationTargetParameter="Outer"/>
                 <dxwui:HamburgerSubMenuNavigationButton Content="Left Join" PreviewContent="Left Join" ShowInPreview="True"

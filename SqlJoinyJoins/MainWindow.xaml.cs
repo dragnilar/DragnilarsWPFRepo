@@ -28,23 +28,22 @@ namespace SqlJoinyJoins
 
             if (e.Parameter != null)
             {
-                var joinModels = new JoinModelService();
                 switch (e.Parameter.ToString())
                 {
                     case "Inner":
-                        Messenger.Default.Send(joinModels.GetInnerJoinViewModel());
+                        Messenger.Default.Send(ExampleDataFactory.GetInnerJoinViewModel());
                         break;
                     case "Outer":
-                        Messenger.Default.Send(joinModels.GetOuterJoinViewModel());
+                        Messenger.Default.Send(ExampleDataFactory.GetOuterJoinViewModel());
                         break;
                     case "Left":
-                        Messenger.Default.Send(joinModels.GetLeftJoinViewModel());
+                        Messenger.Default.Send(ExampleDataFactory.GetLeftJoinViewModel());
                         break;
                     case "Right":
-                        Messenger.Default.Send(joinModels.GetRightJoinViewModel());
+                        Messenger.Default.Send(ExampleDataFactory.GetRightJoinViewModel());
                         break;
                     case "Cross":
-                        Messenger.Default.Send(joinModels.GetCrossJoinViewModel());
+                        Messenger.Default.Send(ExampleDataFactory.GetCrossJoinViewModel());
                         break;
                     default:
                         break;

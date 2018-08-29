@@ -260,9 +260,6 @@
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TableGrid.xaml.cs">
-      <DependentUpon>TableGrid.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Page Include="Views\JoinView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -292,10 +289,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\SettingsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\TableGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

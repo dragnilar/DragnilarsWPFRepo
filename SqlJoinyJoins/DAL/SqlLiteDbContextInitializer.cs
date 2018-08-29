@@ -16,12 +16,7 @@ namespace SqlJoinyJoins.DAL
 
         protected override void Seed(SqlLiteDbContext context)
         {
-            //var weapons = GetWeaponSeed();
-            //context.Set<Weapon>().AddRange(weapons);
 
-            //var weaponAttributes = GetWeaponAttributeSeed();
-
-            //context.Set<WeaponAttribute>().AddRange(weaponAttributes);
         }
     }
 }

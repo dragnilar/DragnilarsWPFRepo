@@ -24,17 +24,17 @@
         <StackPanel Grid.Row="1">
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
-            <TextBlock Text="     • This is a silly tutorial / example list of SQL Joins" FontSize="20"></TextBlock>
+            <TextBlock Text="     • This is a silly tutorial / example list of SQL Joins" FontSize="20"  TextWrapping="Wrap"></TextBlock>
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
-            <TextBlock Text="     • Use the delicious hamburger menu on the left to take a look at the different types of joins." Height="33"
-                       TextWrapping="Wrap" FontSize="20"></TextBlock>
+            <TextBlock Text="     • Use the delicious hamburger menu on the left to take a look at the different types of joins."
+                       TextWrapping="Wrap" FontSize="20" ></TextBlock>
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
-            <TextBlock Text="     • If you want to know more about this application click the about button at the bottom of the hamburger menu." Height="66"
+            <TextBlock Text="     • If you want to know more about this application click the about button at the bottom of the hamburger menu." 
                        TextWrapping="Wrap" FontSize="20"></TextBlock>
         </StackPanel>
     </Grid>

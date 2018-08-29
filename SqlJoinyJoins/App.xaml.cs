@@ -24,7 +24,7 @@ namespace SqlJoinyJoins
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-           // SetupExceptionHandling();
+            SetupExceptionHandling();
             Ninject = SetUpNinjectKernel();
             CheckSettings();
             CheckDatabase(Ninject.Get<DatabaseBuilderService>());

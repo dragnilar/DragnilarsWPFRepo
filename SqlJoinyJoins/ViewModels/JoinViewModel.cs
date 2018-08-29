@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using DevExpress.Mvvm;
 using SqlJoinyJoins.Annotations;
 using SqlJoinyJoins.Models;
@@ -19,9 +20,11 @@ namespace SqlJoinyJoins.ViewModels
         private string _explanation;
         private string _queryUsed;
         private string _title;
+        public ICommand CopyCommand { get; set; }
 
         public JoinViewModel()
         {
+            CopyCommand = ApplicationCommands.Copy;
             Messenger.Default.Register<ExampleData>(this, OnExampleDataMessage);
         }
 
